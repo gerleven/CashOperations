@@ -7,12 +7,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+    },
+  ],
+  {basename: BASENAME}
+);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
