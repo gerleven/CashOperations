@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+// @ts-ignore;
+const BASENAME = CONFIG_BASENAME;
 const router = createBrowserRouter(
   [
     {
