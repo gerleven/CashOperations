@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     plugins: [react()],
     base: "./",
     define: {
-      CONFIG_BASENAME: JSON.stringify((command === 'serve')?"/":"/Challenge-MP"),
+      BASENAME: JSON.stringify((command === 'serve')?"/":"/Challenge-MP"),
     }
   }
 

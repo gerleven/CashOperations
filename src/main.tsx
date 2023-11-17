@@ -7,8 +7,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// @ts-ignore;
-const BASENAME = CONFIG_BASENAME;
 const router = createBrowserRouter(
   [
     {
@@ -16,7 +14,7 @@ const router = createBrowserRouter(
       element: <App />,
     },
   ],
-  {basename: BASENAME}
+  {basename: import.meta.env.VITE_BASENAME}
 );
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
