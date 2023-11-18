@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "8263d194-8106-4cbe-ae6c-4a372086b398",
+		"name": "API MP Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Operations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/operation/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"operation",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

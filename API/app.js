@@ -20,13 +20,13 @@ fs.createReadStream("data.csv")
     operations.push(operation);
   });
 
-// Endpoint "Listing"
-app.get("/listing", (req, res) => {
+// Endpoint "Operations"
+app.get("/operations", (req, res) => {
     res.json({ operations });
 });
 
-// Endpoint "Details"
-app.get('/details/:id', (req, res) => {
+// Endpoint "Operation Details"
+app.get('/operation/:id', (req, res) => {
   const requestedId = parseInt(req.params.id);
 
   // Buscar la operación con el ID solicitado
