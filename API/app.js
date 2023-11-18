@@ -25,6 +25,20 @@ app.get("/listing", (req, res) => {
     res.json({ operations });
 });
 
+// Endpoint "Details"
+app.get('/details/:id', (req, res) => {
+  const requestedId = parseInt(req.params.id);
+
+  // Buscar la operación con el ID solicitado
+  const operation = operations.find(op => op.id === requestedId);
+
+  if (operation) {
+    res.json({ operation });
+  } else {
+    res.status(404).json({ error: 'Operation not found' });
+  }
+});
+
 // Start Server
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
