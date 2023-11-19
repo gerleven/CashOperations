@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root-page.tsx";
 import Index from "./routes/index-page.tsx";
 import OperationDetails from "./routes/operation-details.tsx";
+import Operations from "./routes/operations.tsx"
 import ErrorPage from "./routes/error-page.tsx";
 
 const router = createBrowserRouter(
@@ -25,7 +26,11 @@ const router = createBrowserRouter(
               element: <Index />,
             },
             {
-              path: "/:operationId",
+              path: "/operations",
+              element: <Operations />,
+            },
+            {
+              path: "/operations/:id",
               element: <OperationDetails />,
             },
           ],
