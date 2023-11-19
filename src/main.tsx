@@ -22,7 +22,19 @@ const theme = createTheme({
     grey: { 200: "#EDEDED", 600: "rgba(0, 0, 0, 0.55);" },
   },
   components: {
-    MuiButton: {},
+    MuiIconButton: {
+      defaultProps:{
+        style: {padding: "0"}
+      }
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+      styleOverrides: {
+        
+      }
+    }
   },
   typography: {
     fontFamily: "Roboto, Helvetica, Arial, sans-serif",
@@ -66,6 +78,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ThemeProvider theme={theme}>
       <RouterProvider router={router} />
     </ThemeProvider>
-    ;
   </React.StrictMode>
 );
