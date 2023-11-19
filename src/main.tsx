@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import App from './App.tsx'
 import Root from "./routes/root-page.tsx";
-import Index from "./routes/index-page.tsx";
 import OperationDetails from "./routes/operation-details.tsx";
 import Operations from "./routes/operations.tsx"
 import ErrorPage from "./routes/error-page.tsx";
@@ -23,10 +22,6 @@ const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <Index />,
-            },
-            {
-              path: "/operations",
               element: <Operations />,
             },
             {
