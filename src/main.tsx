@@ -25,6 +25,8 @@ const theme = createTheme({
     MuiIconButton: {
       defaultProps:{
         style: {padding: "0"}
+      },
+      styleOverrides: {
       }
     },
     MuiButtonBase: {
@@ -32,7 +34,17 @@ const theme = createTheme({
         disableRipple: true,
       },
       styleOverrides: {
-        
+      }
+    },
+    MuiSvgIcon: {
+      defaultProps:{},
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            height: "32px",
+            width: "32px",
+            color: theme.palette.common.white
+          })
       }
     }
   },
