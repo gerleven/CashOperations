@@ -1,8 +1,8 @@
 export default function OperationDetails() {
   return (
     <>
-      <div>
-        <h1>OperationDetails</h1>
+      <div className="panel">
+        <span>Example</span>
       </div>
     </>
   );

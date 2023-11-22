@@ -2,57 +2,49 @@ import { createTheme } from "@mui/material/styles";
 
 //You have to use module augmentation to add new variables to the Theme and ThemeOptions.
 declare module "@mui/material/styles" {
-  interface Theme {
-    brandColors?: {
-      blueBanner: string;
-      primary: string;
-      secondary: string;
-      lightGrey: string;
-      white: string;
-      darkGrey: string;
-      black: string;
-    };
+  interface Palette {
+    blueBanner: Palette['primary'];
   }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    brandColors?: {
-      blueBanner: string;
-      primary: string;
-      secondary: string;
-      lightGrey: string;
-      white: string;
-      darkGrey: string;
-      black: string;
-    };
+
+  interface PaletteOptions {
+    blueBanner?: PaletteOptions['primary'];
   }
 }
 
-const theme = createTheme({
+let theme = createTheme({
+  
   palette: {
-    primary: { main: "#3483FA", light: "#009EE3" },
-    secondary: { main: "rgba(65, 137, 230, 0.15);" },
+    primary: { main: "#3483FA", light: "#3c8aff"},
+    secondary: { main: "rgba(65, 137, 230, 0.15);", light: "rgba(73, 140, 227, 0.25)"},
     common: { black: "rgba(0, 0, 0, 0.90);", white: "#FFFFFF" },
-    grey: { 200: "#EDEDED", 600: "rgba(0, 0, 0, 0.55);" },
-  },
-  brandColors: {
-    blueBanner: "#009ee3",
-    primary: "#3483fa",
-    secondary: "rgba(65, 137, 230, 0.15)",
-    lightGrey: "#ededed",
-    white: "#ffffff",
-    darkGrey: "rgba(0, 0, 0, 0.55)",
-    black: "rgba(0, 0, 0, 0.9)",
+    grey: { 100: "#ededed", 200: "#d9d9d9", 300: "rgba(0, 0, 0, 0.55);" },
+    blueBanner: {main: '#009ee3'},
   },
   components: {
-    MuiIconButton: {
-      defaultProps: {
-        style: { padding: "0" },
-      },
-      styleOverrides: {},
-    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
+      },
+      styleOverrides: {
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+      },
+      styleOverrides: {
+        focusVisible: false,
+        root: ({ theme }) =>
+        theme.unstable_sx({
+            textTransform: "none",
+            height: "48px",
+            padding: "16px 24px",
+            fontSize: "16px"
+          }),
+      },
+    },
+    MuiIconButton: {
+      defaultProps: {
+        style: { padding: "0" },
       },
       styleOverrides: {},
     },
@@ -61,17 +53,14 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) =>
           theme.unstable_sx({
-            height: "32px",
-            width: "32px",
-            color: theme.palette.common.white,
           }),
       },
     },
-  },
-  typography: {
-    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-    fontSize: 14,
-  },
+    MuiTypography: {
+      defaultProps: {
+      },
+    }
+  }
 });
 
 export default theme;
