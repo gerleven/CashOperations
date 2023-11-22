@@ -16,11 +16,24 @@ const MenuProps = {
       width: 250,
     },
   },
+  anchorOrigin: {
+    vertical: "bottom",
+    horizontal: "right",
+  },
+  transformOrigin: {
+    vertical: "top",
+    horizontal: "right",
+  },
 };
 
 const names = ["Cobros con QR", "Cobros con tarjeta", "Cobros en efectivo"];
 
-export function CustomSelect({ filters, handleChange, handleClickApply, handleClickClean }: any) {
+export function CustomSelect({
+  filters,
+  handleChange,
+  handleClickApply,
+  handleClickClean,
+}: any) {
   return (
     <>
       {/* <InputLabel id="demo-multiple-checkbox-label">{`Filtros (${filters.length})`}</InputLabel> */}
@@ -32,7 +45,7 @@ export function CustomSelect({ filters, handleChange, handleClickApply, handleCl
         onChange={handleChange}
         // input={<OutlinedInput label={`Filtros (${filters.length})`} />}
         renderValue={() => `Filtros (${filters.length - 1})`}
-        MenuProps={MenuProps}
+        MenuProps={MenuProps as {}}
       >
         {names.map((filter) => (
           <MenuItem key={filter} value={filter}>
@@ -46,10 +59,14 @@ export function CustomSelect({ filters, handleChange, handleClickApply, handleCl
             justifyContent={"center"}
             alignItems={"center"}
             gap={1}
-            sx={{width: "100%", padding: "10px"}}
+            sx={{ width: "100%", padding: "10px" }}
           >
-            <CustomButtonPrimary onClick={handleClickApply}>Aplicar</CustomButtonPrimary>
-            <CustomButtonSecondary onClick={handleClickClean}>Limpiar</CustomButtonSecondary>
+            <CustomButtonPrimary onClick={handleClickApply}>
+              Aplicar
+            </CustomButtonPrimary>
+            <CustomButtonSecondary onClick={handleClickClean}>
+              Limpiar
+            </CustomButtonSecondary>
           </Stack>
         </ListSubheader>
       </Select>
@@ -69,13 +86,13 @@ export default function MultipleSelectCheckmarks() {
       typeof value === "string" ? value.split(",") : value
     );
   };
-  const handleClickApply=()=>{
+  const handleClickApply = () => {
     alert("handleClickApply");
-  }
+  };
 
-  const handleClickClean=()=>{
+  const handleClickClean = () => {
     alert("handleClickClean");
-  }
+  };
 
   return (
     <div>

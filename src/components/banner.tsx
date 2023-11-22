@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material";
-import { CustomBaseButton } from "../utils/custom-buttons";
 
 
 export default function Banner() {
@@ -20,14 +19,12 @@ export default function Banner() {
   return (
     <>
       <div className="banner" style={{backgroundColor: theme.palette.blueBanner.main}}>
-        <IconButton sx={{ marginLeft: "16px" }} onClick={handleBack}>
-        <CustomBaseButton>
+        <IconButton className="noFocusBorder" sx={{ marginLeft: "16px" }} onClick={handleBack}>
           <ArrowBackIcon sx={{
             height: "32px",
             width: "32px",
             color: theme.palette.common.white,
           }}/>
-        </CustomBaseButton>
         </IconButton>
         <img src={logo} alt="Mercado_Pago_imagen" className="banner-logo" onClick={handleHome} style={{cursor: "pointer"}}/>
       </div>
