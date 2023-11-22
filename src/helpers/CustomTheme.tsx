@@ -32,7 +32,6 @@ let theme = createTheme({
       defaultProps: {
       },
       styleOverrides: {
-        focusVisible: false,
         root: ({ theme }) =>
         theme.unstable_sx({
             textTransform: "none",
@@ -58,6 +57,17 @@ let theme = createTheme({
     },
     MuiTypography: {
       defaultProps: {
+      },
+    },
+    MuiSelect:{
+      defaultProps: {
+      },
+      styleOverrides: {
+        root: ({ theme }) =>
+        theme.unstable_sx({
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.common.white,
+          }),
       },
     }
   }

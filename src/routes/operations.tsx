@@ -54,13 +54,13 @@ export default function Operations() {
   return (
     <>
       <Box sx={{ width: "100%", height: "80px", padding: "16px" }}>
-        <Stack direction="row" alignItems={"center"}>
-          <Box sx={{ width: "50%" }}>
+        <Stack direction="row" alignItems={"center"} justifyContent={"space-between"}>
+          <Box sx={{ width: "60%" }}>
             <Typography variant="h3" fontSize={"40px"}>
               $99.999
             </Typography>
           </Box>
-          <Box sx={{ width: "50%" }}>
+          <Box sx={{ width: "30%" }}>
             <MultipleSelectCheckmarks />
           </Box>
         </Stack>
