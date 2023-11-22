@@ -1,35 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import Typography from "@mui/material/Typography";
 import cashImagen from "../assets/icons/cash-32.svg";
-import creditCardImagen from "../assets/icons/credit_card-32.svg";
-import qrCodeImagen from "../assets/icons/qr_code-24.svg";
 
 import MultipleSelectCheckmarks from "../utils/custom-select";
-import { Button, OutlinedInput, Stack, useTheme } from "@mui/material";
+import { Stack, useTheme } from "@mui/material";
 import ButtonBase from "@mui/material/ButtonBase";
 
-import {
-  Outlet,
-  NavLink,
-  useLoaderData,
-  useActionData,
-  Form,
-  redirect,
-  useNavigation,
-  useSubmit,
-} from "react-router-dom";
+// import {useSubmit} from "react-router-dom";
 
 export default function Operations() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const submit = useSubmit();
+  // const submit = useSubmit();
   const operations = [
     {
       id: 1,
