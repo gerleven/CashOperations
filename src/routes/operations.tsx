@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
 import cashImagen from "../assets/icons/cash-32.svg";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import MultipleSelectCheckmarks from "../utils/custom-select";
 import { Stack, useTheme } from "@mui/material";
@@ -60,7 +61,7 @@ export default function Operations() {
             </Typography>
           </Box>
           <Box sx={{ width: "50%" }}>
-            <MultipleSelectCheckmarks/>
+            <MultipleSelectCheckmarks />
           </Box>
         </Stack>
       </Box>
@@ -74,9 +75,13 @@ export default function Operations() {
           direction={"column"}
           alignItems={"strech"}
           justifyContent={"start"}
+          sx={{ padding: "15px 0" }}
         >
           {operations.map((operation) => (
-            <ButtonBase onClick={() => handleOpenOperation(operation.id)} key={operation.id}>
+            <ButtonBase
+              onClick={() => handleOpenOperation(operation.id)}
+              key={operation.id}
+            >
               <Box
                 key={operation.id}
                 sx={{ width: "100%", height: "68px", padding: "5px 16px" }}
@@ -86,27 +91,20 @@ export default function Operations() {
                   alignItems={"center"}
                   justifyContent={"space-between"}
                 >
-                  <Box>
-                    <div
-                      className="paymentMethod"
-                      style={{ backgroundImage: cashImagen }}
-                    >
+                  <Box sx={{ width: "15%" }}>
+                    <Box className="paymentMethod">
                       <img src={cashImagen} alt="cash payment logo" />
-                    </div>
-                    {/* <div className="paymentMethod" style={{backgroundImage: creditCardImagen}}>
-                      <img src={creditCardImagen} alt="credit card payment logo" />
-                    </div>
-                    <div className="paymentMethod" style={{backgroundImage: qrCodeImagen}}>
-                      <img src={qrCodeImagen} alt="qr code payment logo" />
-                    </div> */}
+                    </Box>
+                    {/* <img src={creditCardImagen} alt="credit card payment logo" />
+                    <img src={qrCodeImagen} alt="qr code payment logo" /> */}
                   </Box>
 
-                  <Stack
-                    direction="column"
-                    justifyContent="center"
-                    alignItems={"center"}
-                  >
-                    <Box>
+                  <Box sx={{ width: "60%" }}>
+                    <Stack
+                      direction="column"
+                      justifyContent="center"
+                      alignItems={"start"}
+                    >
                       <Typography
                         fontSize="20px"
                         color={theme.palette.common.black}
@@ -120,9 +118,20 @@ export default function Operations() {
                       >
                         {operation.cajaNumber}
                       </Typography>
-                    </Box>
-                  </Stack>
-                  <Typography>$ {operation.amount}</Typography>
+                    </Stack>
+                  </Box>
+                  <Box sx={{ width: "30%" }}>
+                    <Stack
+                      direction="row"
+                      justifyContent="end"
+                      alignItems="center"
+                    >
+                      <Typography fontSize={"20px"}>
+                        $ {operation.amount}
+                      </Typography>
+                      <KeyboardArrowRightIcon></KeyboardArrowRightIcon>
+                    </Stack>
+                  </Box>
                 </Stack>
               </Box>
             </ButtonBase>
