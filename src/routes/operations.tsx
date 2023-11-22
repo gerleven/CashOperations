@@ -7,7 +7,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import MultipleSelectCheckmarks from "../utils/custom-select";
 import { Stack, useTheme } from "@mui/material";
-import ButtonBase from "@mui/material/ButtonBase";
+import { CustomBaseButton } from "../utils/custom-buttons";
 
 // import {useSubmit} from "react-router-dom";
 
@@ -68,7 +68,6 @@ export default function Operations() {
       <Box
         sx={{
           width: "100%",
-          backgroundColor: theme.palette.common.white,
         }}
       >
         <Stack
@@ -78,13 +77,13 @@ export default function Operations() {
           sx={{ padding: "15px 0" }}
         >
           {operations.map((operation) => (
-            <ButtonBase
+            <CustomBaseButton
               onClick={() => handleOpenOperation(operation.id)}
               key={operation.id}
             >
               <Box
                 key={operation.id}
-                sx={{ width: "100%", height: "68px", padding: "5px 16px" }}
+                sx={{ width: "100%", height: "68px", padding: "5px 16px", backgroundColor: theme.palette.common.white,}}
               >
                 <Stack
                   direction={"row"}
@@ -134,7 +133,7 @@ export default function Operations() {
                   </Box>
                 </Stack>
               </Box>
-            </ButtonBase>
+            </CustomBaseButton>
           ))}
         </Stack>
       </Box>

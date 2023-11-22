@@ -71,3 +71,11 @@
   margin: 32px;
   padding: 32px;
 }
+
+.hoverEffect:hover {
+  filter: brightness(0.95);
+}
+
+.noFocusBorder:focus{
+  outline: none;
+}

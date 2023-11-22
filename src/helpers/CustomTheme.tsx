@@ -24,7 +24,7 @@ let theme = createTheme({
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
-      },
+              },
       styleOverrides: {
       },
     },
