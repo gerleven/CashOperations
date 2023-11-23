@@ -14,7 +14,7 @@ import { IFilterOption } from "../interfaces/global-interfaces";
 
 export default function Operations() {
   //@ts-ignore
-  const [amount, setAmount] = useState(99.99);
+  const [amount, setAmount] = useState(9999.99);
   //@ts-ignore
   const [operations, setOperations] = useState([...operationsList]);
 
@@ -73,12 +73,12 @@ export default function Operations() {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Box sx={{ width: "60%" }}>
-            <Typography variant="h3" fontSize={"40px"}>
+          <Box sx={{ Maxwidth: "60%" }}>
+            <Typography variant="h3" fontSize={"40px"} noWrap>
               ${amount}
             </Typography>
           </Box>
-          <Box sx={{ width: "30%" }}>
+          <Box>
             {/*                               Filters */}
             <CustomFiltersSelect
               filtersList={filtersList}

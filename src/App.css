@@ -18,8 +18,9 @@
 }
 .app-wrapper {
   background-color: var(--grey);
-  height: 100vh;
-  width: 50vh;
+  /* height: 90vh; */
+  flex-grow: 1;
+  aspect-ratio: 1/2;
 }
 
 .banner {

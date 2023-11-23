@@ -15,7 +15,7 @@ export default function IndexPage() {
         <CustomButtonPrimary onClick={handleLoadOperations}>
           Load Operations
         </CustomButtonPrimary>
-      </Stack>
+              </Stack>
     </>
   );
 }

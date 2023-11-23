@@ -8,8 +8,8 @@ export default function Root() {
     <>
       <Stack
         className="fullscreen"
-        direction={"row"}
-        justifyContent={"center"}
+        direction={"column"}
+        justifyContent={"start"}
         alignItems={"center"}
       >
         <Box className="app-wrapper">
