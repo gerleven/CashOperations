@@ -42,12 +42,7 @@ export default function Operations() {
       id: "cash",
       value: false,
       description: "Cobro en efectivo",
-    },
-    {
-      id: "debito",
-      value: false,
-      description: "Cobro con debito",
-    },
+    }
   ];
 
   const filtersList = filterOprions.map(
