@@ -11,7 +11,7 @@ export default function IndexPage() {
 
   return (
     <>
-      <Stack spacing={2} direction="row" justifyContent="center">
+      <Stack spacing={2} direction="column" justifyContent="center" alignItems={"center"} sx={{padding: "2vh"}}>
         <CustomButtonPrimary onClick={handleLoadOperations}>
           Load Operations
         </CustomButtonPrimary>

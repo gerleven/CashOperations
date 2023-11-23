@@ -15,34 +15,42 @@ export default function OperationDetails() {
 
   return (
     <>
-      <Box className="panel">
-        <Stack
-          direction="column"
-          alignItems={"center"}
-          justifyContent={"space-evenly"}
-          sx={{ height: "300px" }}
-        >
-          <Box
-            className="paymentMethod"
-            sx={{ width: "80px", height: "80px", margin: "20px" }}
+      <Stack direction="column" alignItems={"center"} justifyContent={"center"}>
+        <Box className="detailsPanel">
+          <Stack
+            direction="column"
+            alignItems={"center"}
+            justifyContent={"center"}
           >
-            <img
-              src={cashImagen}
-              alt="cash payment logo"
-              style={{ width: "32px" }}
-            />
-          </Box>
-          <Typography variant="inherit" fontSize={"40px"}>
-            {operation.paymentDescription}
-          </Typography>
-          <Typography variant="inherit" fontSize={"25px"}>
-            {operation.cajaNumber}
-          </Typography>
-          <Typography variant="inherit" fontSize={"35px"}>
-            {operation.amount}
-          </Typography>
-        </Stack>
-      </Box>
+            <Stack
+              className="paymentPictureContainer"
+              direction="column"
+              alignItems={"center"}
+              justifyContent={"center"}
+              sx={{ height: "80px", width: "80px", marginBottom: "20px" }}
+            >
+              <img
+                src={cashImagen}
+                alt="cash payment logo"
+                style={{ width: "32px" }}
+              />
+            </Stack>
+            <Typography
+              variant="inherit"
+              fontSize={"35px"}
+              textAlign={"center"}
+            >
+              {operation.paymentDescription}
+            </Typography>
+            <Typography variant="inherit" fontSize={"25px"}>
+              {operation.cajaNumber}
+            </Typography>
+            <Typography variant="inherit" fontSize={"35px"}>
+              {operation.amount}
+            </Typography>
+          </Stack>
+        </Box>
+      </Stack>
     </>
   );
 }

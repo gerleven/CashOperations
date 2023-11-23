@@ -1,18 +1,28 @@
 import { Outlet } from "react-router-dom";
 import "../App.css";
 import Banner from "../components/banner";
+import { Box, Stack } from "@mui/material";
 
 export default function Root() {
   return (
     <>
-      <div className="fullscreen">
-        <div className="app-wrapper">
-          <Banner></Banner>
-          <div className="app-content">
+      <Stack
+        className="fullscreen"
+        direction={"row"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        <Box className="app-wrapper">
+          <Stack
+            direction={"column"}
+            justifyContent={"start"}
+            alignItems={"center"}
+          >
+            <Banner></Banner>
             <Outlet />
-          </div>
-        </div>
-      </div>
+          </Stack>
+        </Box>
+      </Stack>
     </>
   );
 }

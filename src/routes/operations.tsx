@@ -13,7 +13,9 @@ import { IFilterOption } from "../interfaces/global-interfaces";
 // import {useSubmit} from "react-router-dom";
 
 export default function Operations() {
+  //@ts-ignore
   const [amount, setAmount] = useState(99.99);
+  //@ts-ignore
   const [operations, setOperations] = useState([...operationsList]);
 
   const navigate = useNavigate();
