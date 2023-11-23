@@ -29,7 +29,7 @@ export const CustomButtonSecondary = styled(Button)<ButtonProps>(
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.main,
-      filter: "brightness(0.95)",
+      filter: "brightness(0.85)",
     },
     "&:focus": {
       outline: "none",
