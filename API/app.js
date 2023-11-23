@@ -14,7 +14,7 @@ fs.createReadStream("data.csv")
       id: parseInt(row.id),
       paymentType: row.type,
       paymentDescription: row.title,
-      cajaNumber: row.description,
+      boxNumber: row.description,
       amount: parseFloat(row.amount.replace(",", ".")), // Convert comma to period and parse as number
     };
     operations.push(operation);

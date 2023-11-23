@@ -3,12 +3,12 @@ import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
 
-import { Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import OperationRow from "../components/operation-row";
 import operationsList from "../helpers/fake-data";
 import { useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
-import { IFilterOption } from "../interfaces/global-interfaces";
+import { IFilterOption, Ioperation } from "../interfaces/global-interfaces";
 
 // import {useSubmit} from "react-router-dom";
 
@@ -16,7 +16,8 @@ export default function Operations() {
   //@ts-ignore
   const [amount, setAmount] = useState(9999.99);
   //@ts-ignore
-  const [operations, setOperations] = useState([...operationsList]);
+  const [operations, setOperations] = useState<Ioperation[]>([...operationsList]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const navigate = useNavigate();
   // const submit = useSubmit();
@@ -30,37 +31,48 @@ export default function Operations() {
     {
       id: "qr",
       value: false,
-      description: "Cobros con QR",
+      description: "Cobro con QR",
     },
     {
       id: "card",
       value: false,
-      description: "Cobros con tarjeta",
+      description: "Cobro con tarjeta",
     },
     {
       id: "cash",
       value: false,
-      description: "Cobros en efectivo",
+      description: "Cobro en efectivo",
     },
     {
       id: "debito",
       value: false,
-      description: "Cobros con debito",
+      description: "Cobro con debito",
     },
   ];
-  
+
   const filtersList = filterOprions.map(
     (filterOption) => filterOption.description
   );
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const test = () => {
+    console.log({ amount, operations, selectedFilters });
+  };
+
+  const resetOperation = () => {
+    setOperations(operationsList);
+  }
 
   const handleApplyFilters = () => {
-    console.log("Aplicar filtros")
+    resetOperation();
+    if(selectedFilters.length != 0){
+      const newList: Ioperation[] = operationsList.filter((operation)=>(selectedFilters.includes(operation.paymentDescription)));
+      setOperations(newList);
+    }
   };
 
   const handleCleanFilters = () => {
     setSelectedFilters([]);
-    handleApplyFilters();
+    resetOperation();
   };
   
 
@@ -99,6 +111,7 @@ export default function Operations() {
           justifyContent={"start"}
           sx={{ padding: "15px 0" }}
         >
+          <Button onClick={test}>Test</Button>
           {operations.map((operation) => (
             <OperationRow
               key={operation.id}

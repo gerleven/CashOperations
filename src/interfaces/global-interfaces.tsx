@@ -2,7 +2,7 @@ export interface Ioperation {
   id: number;
   paymentType: string;
   paymentDescription: string;
-  cajaNumber: string;
+  boxNumber: string;
   amount: number;
 }
 

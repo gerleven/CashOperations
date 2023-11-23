@@ -10,13 +10,12 @@ import { CustomBaseButton } from "../utils/custom-buttons";
 
 import { Ioperation } from "../interfaces/global-interfaces";
 
-export default function OperationRow({
-  operation,
-  handleOpenOperation,
-}: {
+interface IOperationRow {
   operation: Ioperation;
   handleOpenOperation: Function;
-}) {
+}
+
+export default function OperationRow({ operation, handleOpenOperation }: IOperationRow) {
   const theme = useTheme();
 
   return (
@@ -45,7 +44,7 @@ export default function OperationRow({
                 direction="column"
                 alignItems={"center"}
                 justifyContent={"center"}
-                sx={{ height: "40px", width: "40px"}}
+                sx={{ height: "40px", width: "40px" }}
               >
                 <img
                   src={cashImagen}
@@ -71,13 +70,16 @@ export default function OperationRow({
                   fontSize="18px"
                   color={theme.palette.grey[300]}
                 >
-                  {operation.cajaNumber}
+                  {operation.boxNumber}
                 </Typography>
               </Stack>
             </Box>
             <Box sx={{ width: "30%" }}>
               <Stack direction="row" justifyContent="end" alignItems="center">
-                <Typography fontSize={"20px"} noWrap>{`$ ${operation.amount}`}</Typography>
+                <Typography
+                  fontSize={"20px"}
+                  noWrap
+                >{`$ ${operation.amount}`}</Typography>
                 <KeyboardArrowRightIcon></KeyboardArrowRightIcon>
               </Stack>
             </Box>

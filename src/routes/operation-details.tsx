@@ -9,7 +9,7 @@ export default function OperationDetails() {
     id: 1,
     paymentType: "cash",
     paymentDescription: "Cobro en efectivo",
-    cajaNumber: "Caja 2",
+    boxNumber: "Caja 2",
     amount: 751.61,
   };
 
@@ -43,7 +43,7 @@ export default function OperationDetails() {
               {operation.paymentDescription}
             </Typography>
             <Typography variant="inherit" fontSize={"25px"}>
-              {operation.cajaNumber}
+              {operation.boxNumber}
             </Typography>
             <Typography variant="inherit" fontSize={"35px"}>
               {operation.amount}
