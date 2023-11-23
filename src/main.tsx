@@ -8,6 +8,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root-page.tsx";
 import IndexPage from "./routes/index-page.tsx";
 import Operations from "./routes/operations.tsx";
+import {loader as OperationsLoader }from "./routes/operations.tsx"
 import OperationDetails from "./routes/operation-details.tsx";
 import ErrorPage from "./routes/error-page.tsx";
 
@@ -32,6 +33,7 @@ const router = createHashRouter(
             {
               path: "/list",
               element: <Operations />,
+              loader: OperationsLoader,
             },
             {
               path: "/detail/:id",

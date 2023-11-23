@@ -12,12 +12,22 @@ import { IFilterOption, Ioperation } from "../interfaces/global-interfaces";
 
 // import {useSubmit} from "react-router-dom";
 
+export async function loader(){
+  return null;
+}
+
+export async function action(){
+  return null;
+}
+
 export default function Operations() {
   //@ts-ignore
   const [amount, setAmount] = useState(9999.99);
   //@ts-ignore
   const [operations, setOperations] = useState<Ioperation[]>([...operationsList]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  
 
   const navigate = useNavigate();
   // const submit = useSubmit();

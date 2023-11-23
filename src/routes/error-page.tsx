@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 export default function ErrorPage() {
   return (
     <>
-      <Stack direction="column" alignItems={"center"} justifyContent={"center"}>
+      <Stack direction="column" alignItems={"center"} justifyContent={"center"} sx={{width: "100vw"}}>
         <Box className="detailsPanel">
           <Stack
             direction="column"
