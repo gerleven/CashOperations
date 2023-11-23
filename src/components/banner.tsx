@@ -13,8 +13,8 @@ export default function Banner() {
   const handleBack = () => {
     navigate("/list");
   };
-  const handleHome = () => {
-    navigate("/");
+  const handleClickLogo = () => {
+    // navigate("/about");
   };
   return (
     <>
@@ -27,7 +27,9 @@ export default function Banner() {
             }}/>
           </IconButton>
           <Box className="banner-logo">
-            <img src={logo} alt="Mercado_Pago_imagen" onClick={handleHome} style={{cursor: "pointer"}}/>
+            <img src={logo} alt="Mercado_Pago_imagen" onClick={handleClickLogo} 
+            // style={{cursor: "pointer"}}
+            />
           </Box>
         
       </Stack>

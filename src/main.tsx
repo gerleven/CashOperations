@@ -13,6 +13,7 @@ import ErrorPage from "./routes/error-page.tsx";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./helpers/CustomTheme.tsx";
+import About from "./routes/about-page.tsx";
 
 const router = createHashRouter(
   [
@@ -35,6 +36,10 @@ const router = createHashRouter(
             {
               path: "/detail/:id",
               element: <OperationDetails />,
+            },
+            {
+              path: "/about",
+              element: <About />,
             },
           ],
         },

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { CustomButtonPrimary } from "../utils/custom-buttons";
-import { Stack } from "@mui/material";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
+import { useEffect } from "react";
 
 export default function IndexPage() {
   const navigate = useNavigate();
@@ -9,18 +10,27 @@ export default function IndexPage() {
     navigate("/list");
   };
 
+  useEffect(() => {
+    setTimeout(()=>{handleLoadOperations()}, 500);
+    
+  }, []);
+
   return (
     <>
-      <Stack
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems={"center"}
-        sx={{ padding: "2vh" }}
-      >
-        <CustomButtonPrimary onClick={handleLoadOperations}>
-          Load Operations
-        </CustomButtonPrimary>
+      <Stack direction="column" alignItems={"center"} justifyContent={"center"}>
+        <Box className="detailsPanel">
+          <Typography variant="h2" fontSize={"25px"} textAlign={"center"}>
+            Cargando Operaciones...
+          </Typography>
+          <Stack
+            direction="column"
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{height: "50%"}}
+          >
+          <CircularProgress />
+          </Stack>
+        </Box>
       </Stack>
     </>
   );
