@@ -37,7 +37,7 @@ export default function OperationDetails() {
             </Stack>
             <Typography
               variant="inherit"
-              fontSize={"35px"}
+              fontSize={"30px"}
               textAlign={"center"}
             >
               {operation.paymentDescription}
