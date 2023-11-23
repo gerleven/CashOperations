@@ -3,9 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
-// import App from './App.tsx'
 import Root from "./routes/root-page.tsx";
 import IndexPage from "./routes/index-page.tsx";
 import Operations from "./routes/operations.tsx";
@@ -15,7 +14,7 @@ import ErrorPage from "./routes/error-page.tsx";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./helpers/CustomTheme.tsx";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
@@ -42,7 +41,8 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: import.meta.env.VITE_BASENAME }
+  { basename: "/" }
+  // { basename: import.meta.env.VITE_BASENAME }
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

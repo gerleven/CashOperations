@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {CustomButtonPrimary,} from "../utils/custom-buttons";
+import { CustomButtonPrimary } from "../utils/custom-buttons";
 import { Stack } from "@mui/material";
 
 export default function IndexPage() {
@@ -11,11 +11,17 @@ export default function IndexPage() {
 
   return (
     <>
-      <Stack spacing={2} direction="column" justifyContent="center" alignItems={"center"} sx={{padding: "2vh"}}>
+      <Stack
+        spacing={2}
+        direction="column"
+        justifyContent="center"
+        alignItems={"center"}
+        sx={{ padding: "2vh" }}
+      >
         <CustomButtonPrimary onClick={handleLoadOperations}>
           Load Operations
         </CustomButtonPrimary>
-              </Stack>
+      </Stack>
     </>
   );
 }
