@@ -77,7 +77,7 @@ export default function OperationRow({
             </Box>
             <Box sx={{ width: "30%" }}>
               <Stack direction="row" justifyContent="end" alignItems="center">
-                <Typography fontSize={"20px"}>$ {operation.amount}</Typography>
+                <Typography fontSize={"20px"} noWrap>{`$ ${operation.amount}`}</Typography>
                 <KeyboardArrowRightIcon></KeyboardArrowRightIcon>
               </Stack>
             </Box>

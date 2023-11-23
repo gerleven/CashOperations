@@ -18,8 +18,8 @@
 }
 .app-wrapper {
   background-color: var(--grey);
-  height: 90vh;
-  width: 45vh;
+  height: 100vh;
+  width: 50vh;
 }
 
 .banner {
