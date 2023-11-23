@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
 
-import { Button, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import OperationRow from "../components/operation-row";
 import operationsList from "../helpers/fake-data";
 import { useState } from "react";
@@ -53,10 +53,6 @@ export default function Operations() {
   const filtersList = filterOprions.map(
     (filterOption) => filterOption.description
   );
-
-  const test = () => {
-    console.log({ amount, operations, selectedFilters });
-  };
 
   const resetOperation = () => {
     setOperations(operationsList);
@@ -111,7 +107,6 @@ export default function Operations() {
           justifyContent={"start"}
           sx={{ padding: "15px 0" }}
         >
-          <Button onClick={test}>Test</Button>
           {operations.map((operation) => (
             <OperationRow
               key={operation.id}
