@@ -1,4 +1,5 @@
 import { Ioperation } from "../interfaces/global-interfaces";
+import hardcodedOperationsList from "../helpers/fake-data";
 
 export async function getOperationDetail(id: number) {
   if (import.meta.env.DEV) {
@@ -15,14 +16,15 @@ export async function getOperationDetail(id: number) {
       throw new Error(error);
     }
   } else {
-    //If not run local it use hardcoded data:
-    const operationDetail: Ioperation = {
+    //If not running local, it'll use hardcoded data or an example in case the operation doesn't exist in the hardcoded list:
+    const operationDetail: Ioperation = hardcodedOperationsList.find(x=>x.id==id) || {
       id: 1,
       paymentType: "card",
       paymentDescription: "Cobro en efectivo (Example)",
       boxNumber: "Caja 2",
       amount: 751.61,
-    };
+    } as Ioperation;
+    
     return operationDetail;
   }
 }
