@@ -1,6 +1,6 @@
 import { Ioperation } from "../interfaces/global-interfaces";
 
-const operationsList: Ioperation[] = [
+const hardcodedOperationsList: Ioperation[] = [
   {
     id: 1,
     paymentType: "cash",
@@ -45,4 +45,4 @@ const operationsList: Ioperation[] = [
 },
 ];
 
-export default operationsList;
+export default hardcodedOperationsList;

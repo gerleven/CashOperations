@@ -8,21 +8,11 @@ import { Stack } from "@mui/material";
 import OperationRow from "../components/operation-row";
 import { useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
-import { IFilterOption, Ioperation } from "../interfaces/global-interfaces";
+import { Ioperation } from "../interfaces/global-interfaces";
 import { useFetchOperations } from "../hooks/useFetchOperations";
-// import {useSubmit} from "react-router-dom";
-// import operationsList from "../helpers/fake-data";
+
 
 export async function loader() {
-  // const operations = await fetchOperations();
-  // if(!operations){
-  //   throw new Response("", {
-  //     status: 404,
-  //     statusText: "Fetch error"
-  //   });
-  // }
-
-  // return operationsList;
   return null;
 }
 
@@ -31,50 +21,23 @@ export async function action() {
 }
 
 export default function Operations() {
-  // const operationsListFetch = useLoaderData();
   //@ts-ignore
   const [amount, setAmount] = useState(9999.99);
-  //@ts-ignore
-  const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(
-    []
-  );
-  const [operationsFilteredList, setOperationsFilteredList] = useState<
-    Ioperation[]
-  >([]);
+  const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>([]);
+  const [operationsFilteredList, setOperationsFilteredList] = useState<Ioperation[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-
-  useFetchOperations(setOperationsFullList, setOperationsFilteredList);
-
+  
   const navigate = useNavigate();
-  // const submit = useSubmit();
-
   const handleOpenOperation = (id: number) => {
     navigate("/detail/" + id);
-    // submit();
   };
 
-  const filterOprions: IFilterOption[] = [
-    {
-      id: "qr",
-      value: false,
-      description: "Cobro con QR",
-    },
-    {
-      id: "card",
-      value: false,
-      description: "Cobro con tarjeta",
-    },
-    {
-      id: "cash",
-      value: false,
-      description: "Cobro en efectivo",
-    },
-  ];
+  const filtersList = ["Cobro con QR","Cobro con tarjeta","Cobro en efectivo"];
 
-  const filtersList = filterOprions.map(
-    (filterOption) => filterOption.description
-  );
+  // Hook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
+  useFetchOperations(setOperationsFullList, setOperationsFilteredList);
 
+  // Functions
   const resetOperationFilteredList = () => {
     setOperationsFilteredList(operationsFullList);
   };
