@@ -43,6 +43,34 @@ const hardcodedOperationsList: Ioperation[] = [
     boxNumber: "Caja 2",
     amount: 456.02
 },
+{
+  id: 7,
+  paymentType: "cash",
+  paymentDescription: "Cobro en efectivo",
+  boxNumber: "Caja 1",
+  amount: 977.71
+},
+{
+  id: 8,
+  paymentType: "cash",
+  paymentDescription: "Cobro en efectivo",
+  boxNumber: "Caja 3",
+  amount: 774.6
+},
+{
+  id: 9,
+  paymentType: "cash",
+  paymentDescription: "Cobro en efectivo",
+  boxNumber: "Caja 3",
+  amount: 339.23
+},
+{
+  id: 10,
+  paymentType: "card",
+  paymentDescription: "Cobro con tarjeta",
+  boxNumber: "Caja 1",
+  amount: 454.15
+},
 ];
 
 export default hardcodedOperationsList;
