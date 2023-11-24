@@ -1,5 +1,5 @@
 //@ts-ignore
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useSubmit } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -31,9 +31,9 @@ export default function Operations() {
   >([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-  const navigate = useNavigate();
+  const submit = useSubmit();
   const handleOpenOperation = (id: number) => {
-    navigate("/detail/" + id);
+    submit(null, { action: "/detail/"+id });
   };
 
   const filtersList = [

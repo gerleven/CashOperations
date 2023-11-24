@@ -2,18 +2,23 @@ import "../App.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
-import pictureMap from "../helpers/payment-picture-mapping"
+import pictureMap from "../helpers/payment-picture-mapping";
 
-
-export default function OperationDetail({operation}: any) {
-  
+export default function OperationDetail({ operation }: any) {
   return (
     <>
-    <Box className="detailsPanel">
+      <Box className="detailsPanel">
+        <Stack
+          direction="column"
+          alignItems={"center"}
+          justifyContent={"center"}
+          sx={{ height: "100%" }}
+        >
           <Stack
             direction="column"
             alignItems={"center"}
-            justifyContent={"center"}
+            justifyContent={"start"}
+            spacing={2}
           >
             <Stack
               className="paymentPictureContainer"
@@ -28,6 +33,7 @@ export default function OperationDetail({operation}: any) {
                 style={{ width: "32px" }}
               />
             </Stack>
+
             <Typography
               variant="inherit"
               fontSize={"30px"}
@@ -42,8 +48,8 @@ export default function OperationDetail({operation}: any) {
               {operation.amount}
             </Typography>
           </Stack>
-        </Box>
-     
+        </Stack>
+      </Box>
     </>
   );
 }
