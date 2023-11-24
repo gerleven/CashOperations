@@ -6,10 +6,11 @@ import Typography from "@mui/material/Typography";
 
 import { Stack } from "@mui/material";
 import OperationRow from "../components/operation-row";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
 import { Ioperation } from "../interfaces/global-interfaces";
 import { useFetchOperations } from "../hooks/useFetchOperations";
+import PriceFormatter from "../helpers/price-formatter";
 
 
 export async function loader() {
@@ -36,6 +37,13 @@ export default function Operations() {
 
   // Hook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
   useFetchOperations(setOperationsFullList, setOperationsFilteredList);
+
+  useEffect(()=>{
+    const balance = operationsFilteredList.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.amount;
+    }, 0);
+    setAmount(balance)
+  }, [operationsFilteredList]);
 
   // Functions
   const resetOperationFilteredList = () => {
@@ -66,9 +74,9 @@ export default function Operations() {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Box sx={{ Maxwidth: "60%" }}>
-            <Typography variant="h3" fontSize={"40px"} noWrap>
-              ${amount}
+          <Box sx={{ width: "60%" }}>
+            <Typography variant="h3" fontSize={"35px"} noWrap>
+              {PriceFormatter(amount)}
             </Typography>
           </Box>
           <Box>

@@ -14,10 +14,11 @@ export function useFetchOperations(
         try {
           const response = await fetch(url);
           const result = await response.json();
-          const operationsFetched: Ioperation[] =
+          let operationsFetched: Ioperation[] =
             result.operations as Ioperation[];
-          setOperationsFullList(operationsFetched.slice(0, 30));
-          setOperationsFilteredList(operationsFetched.slice(0, 30));
+          // operationsFetched = operationsFetched.slice(0, 2); //To test with a reduced list
+          setOperationsFullList(operationsFetched);
+          setOperationsFilteredList(operationsFetched);
         } catch (error: any) {
           throw new Error(error);
         }
