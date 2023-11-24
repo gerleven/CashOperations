@@ -2,7 +2,6 @@ import "../App.css";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
-import cashImagen from "../assets/icons/cash-32.svg";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import { Stack, useTheme } from "@mui/material";
@@ -10,14 +9,19 @@ import { CustomBaseButton } from "../utils/custom-buttons";
 
 import { Ioperation } from "../interfaces/global-interfaces";
 
+import pictureMap from "../helpers/payment-picture-mapping"
+
 interface IOperationRow {
   operation: Ioperation;
   handleOpenOperation: Function;
 }
 
-export default function OperationRow({ operation, handleOpenOperation }: IOperationRow) {
+export default function OperationRow({
+  operation,
+  handleOpenOperation,
+}: IOperationRow) {
+  
   const theme = useTheme();
-
   return (
     <>
       <CustomBaseButton
@@ -47,13 +51,11 @@ export default function OperationRow({ operation, handleOpenOperation }: IOperat
                 sx={{ height: "40px", width: "40px" }}
               >
                 <img
-                  src={cashImagen}
-                  alt="cash payment logo"
+                  src={pictureMap[operation.paymentType]}
+                  alt="payment logo"
                   style={{ width: "16px" }}
                 />
               </Stack>
-              {/* <img src={creditCardImagen} alt="credit card payment logo" />
-                    <img src={qrCodeImagen} alt="qr code payment logo" /> */}
             </Box>
 
             <Box sx={{ width: "60%" }}>

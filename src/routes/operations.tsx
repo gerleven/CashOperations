@@ -12,7 +12,6 @@ import { Ioperation } from "../interfaces/global-interfaces";
 import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
 
-
 export async function loader() {
   return null;
 }
@@ -24,25 +23,36 @@ export async function action() {
 export default function Operations() {
   //@ts-ignore
   const [amount, setAmount] = useState(9999.99);
-  const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>([]);
-  const [operationsFilteredList, setOperationsFilteredList] = useState<Ioperation[]>([]);
+  const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(
+    []
+  );
+  const [operationsFilteredList, setOperationsFilteredList] = useState<
+    Ioperation[]
+  >([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  
+
   const navigate = useNavigate();
   const handleOpenOperation = (id: number) => {
     navigate("/detail/" + id);
   };
 
-  const filtersList = ["Cobro con QR","Cobro con tarjeta","Cobro en efectivo"];
+  const filtersList = [
+    "Cobro con QR",
+    "Cobro con tarjeta",
+    "Cobro en efectivo",
+  ];
 
   // Hook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
   useFetchOperations(setOperationsFullList, setOperationsFilteredList);
 
-  useEffect(()=>{
-    const balance = operationsFilteredList.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.amount;
-    }, 0);
-    setAmount(balance)
+  useEffect(() => {
+    const balance = operationsFilteredList.reduce(
+      (accumulator, currentValue) => {
+        return accumulator + currentValue.amount;
+      },
+      0
+    );
+    setAmount(balance);
   }, [operationsFilteredList]);
 
   // Functions
@@ -107,9 +117,9 @@ export default function Operations() {
               </p>
             </Typography>
           ) : (
-            operationsFilteredList.map((operation) => (
+            operationsFilteredList.map((operation, index) => (
               <OperationRow
-                key={operation.id}
+                key={index}
                 operation={operation}
                 handleOpenOperation={handleOpenOperation}
               ></OperationRow>
