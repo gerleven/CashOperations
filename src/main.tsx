@@ -34,7 +34,7 @@ const router = createHashRouter(
               path: "/list",
               element: <Operations />,
               loader: OperationsLoader,
-            },
+                          },
             {
               path: "/detail/:id",
               element: <OperationDetails />,

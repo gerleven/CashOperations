@@ -9,6 +9,7 @@
   --grey: #d9d9d9;
   --dark-grey: rgba(0, 0, 0, 0.55);
   --black: rgba(0, 0, 0, 0.9);
+  --error: #a80000;
 }
 
 .fullscreen {
@@ -19,7 +20,12 @@
 .app-wrapper {
   background-color: var(--grey);
   flex-grow: 1;
-  aspect-ratio: 1/2;
+  aspect-ratio: 1/2;  
+}
+
+.overFlowyScroll{
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 
 .banner {

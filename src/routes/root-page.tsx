@@ -13,12 +13,12 @@ export default function Root() {
         alignItems={"center"}
       >
         <Box className="app-wrapper">
+          <Banner></Banner>
           <Stack
             direction={"column"}
             justifyContent={"start"}
             alignItems={"center"}
           >
-            <Banner></Banner>
             <Outlet />
           </Stack>
         </Box>
