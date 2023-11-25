@@ -9,7 +9,7 @@ import { CustomBaseButton } from "../utils/custom-buttons";
 
 import { Ioperation } from "../interfaces/global-interfaces";
 
-import pictureMap from "../helpers/payment-picture-mapping"
+import {thumbnailPictureMap} from "../helpers/payment-picture-mapping"
 
 interface IOperationRow {
   operation: Ioperation;
@@ -51,7 +51,7 @@ export default function OperationRow({
                 sx={{ height: "40px", width: "40px" }}
               >
                 <img
-                  src={pictureMap[operation.paymentType]}
+                  src={thumbnailPictureMap[operation.paymentType]}
                   alt="payment logo"
                   style={{ width: "16px" }}
                 />

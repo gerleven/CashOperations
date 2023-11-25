@@ -2,7 +2,7 @@ import "../App.css";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
-import pictureMap from "../helpers/payment-picture-mapping";
+import { pictureMap } from "../helpers/payment-picture-mapping";
 
 export default function OperationDetail({ operation }: any) {
   return (
