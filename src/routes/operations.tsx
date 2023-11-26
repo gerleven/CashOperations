@@ -45,7 +45,8 @@ export default function Operations() {
   // const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(fetchedOperationsList);
   // useFetchOperations(setOperationsFullList, setOperationsFilteredList);
 
-  
+  //This hook provide props about the navigations, here is used to check the state and give loading status feedback
+  const navigation = useNavigation();
 
   useEffect(() => {
     const balance = operationsFilteredList.reduce(
@@ -106,7 +107,7 @@ export default function Operations() {
 
       {/* Operations List */}
       <Stack
-        className="overFlowyScroll"
+        className={`overFlowyScroll ${(navigation.state === "loading" ? "loading" : "")}`}
         direction={"column"}
         alignItems={"strech"}
         justifyContent={"start"}

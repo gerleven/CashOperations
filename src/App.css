@@ -88,6 +88,12 @@
   outline: none;
 }
 
+.loading {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}
+
 /* Overrides for Custom Select */
 .customSelectDownIcon{
   position: absolute;
