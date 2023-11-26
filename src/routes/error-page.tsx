@@ -1,12 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { useLocation, useRouteError, useSubmit } from "react-router-dom";
+import { useRouteError, useSubmit } from "react-router-dom";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { CustomButtonPrimary } from "../utils/custom-buttons";
-
-interface IError {
-  statusText: any;
-  message: any;
-}
+import { IError } from "../interfaces/global-interfaces";
 
 export default function ErrorPage() {
   const submit = useSubmit();
@@ -29,14 +25,11 @@ export default function ErrorPage() {
             alignItems={"center"}
             justifyContent={"center"}
           >
+            <HighlightOffIcon className="error-icon"/>
             <Typography variant="h2" fontSize={"35px"}>
               Algo salio mal...
             </Typography>
-            <br />
-            <br />
             
-            <HighlightOffIcon style={{scale: "3", color: "#a80000"}}></HighlightOffIcon>
-            <br />
             <br />
             
             <Typography variant="caption" fontSize={"15px"} textAlign={"left"}>

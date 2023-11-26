@@ -6,14 +6,14 @@ import Typography from "@mui/material/Typography";
 import { Stack, useTheme } from "@mui/material";
 import { CustomBaseButton } from "../utils/custom-buttons";
 
-import { Ioperation } from "../interfaces/global-interfaces";
+import { IOperation } from "../interfaces/global-interfaces";
 
 import { thumbnailPictureMap } from "../helpers/payment-picture-mapping";
 import rightArrowIcon from "../assets/icons/chevron_right.svg";
 import PriceFormatter from "../helpers/price-formatter";
 
 interface IOperationRow {
-  operation: Ioperation;
+  operation: IOperation;
   handleOpenOperation: Function;
 }
 

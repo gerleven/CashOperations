@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Ioperation } from "../interfaces/global-interfaces";
+import { IOperation } from "../interfaces/global-interfaces";
 import hardcodedOperationsList from "../helpers/fake-data";
 
 export function useFetchOperations(
@@ -14,17 +14,19 @@ export function useFetchOperations(
         try {
           const response = await fetch(url);
           const result = await response.json();
-          let operationsFetched: Ioperation[] =
-            result.operations as Ioperation[];
+          let operationsFetched: IOperation[] =
+            result.operations as IOperation[];
           // operationsFetched = operationsFetched.slice(0, 2); //To test with a reduced list
           setOperationsFullList(operationsFetched);
           setOperationsFilteredList(operationsFetched);
         } catch (error: any) {
-          if(window.confirm("La API no responde, desea cargar datos de ejemplo?")){
+          if (
+            window.confirm("La API no responde, desea cargar datos de ejemplo?")
+          ) {
             //If API not work, you can use this fake data:
             setOperationsFullList(hardcodedOperationsList.slice(0, 30));
             setOperationsFilteredList(hardcodedOperationsList.slice(0, 30));
-          };
+          }
           throw new Error(error);
         }
       };

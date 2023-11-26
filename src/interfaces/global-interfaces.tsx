@@ -1,4 +1,4 @@
-export interface Ioperation {
+export interface IOperation {
   id: number;
   paymentType: string;
   paymentDescription: string;
@@ -16,4 +16,9 @@ export interface IFilterOption{
     id: string;
     value: boolean;
     description: string;
+}
+
+export interface IError {
+  statusText: any;
+  message: any;
 }

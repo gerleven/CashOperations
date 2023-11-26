@@ -22,6 +22,7 @@ import {
 
 import ErrorPage from "./routes/error-page.tsx";
 import RoutingErrorPage from "./routes/routing-error-page.tsx";
+import ApiNotWorking from "./routes/api-not-working.tsx";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./helpers/CustomTheme.tsx";
@@ -52,6 +53,10 @@ const router = createHashRouter(
               element: <OperationDetails />,
               loader: operationsDetailLoader,
               action: operationsDetailAction,
+            },
+            {
+              path: "/api-not-working",
+              element: <ApiNotWorking />,
             },
             {
               path: "/about",

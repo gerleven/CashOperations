@@ -1,12 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { useLocation, useRouteError, useSubmit } from "react-router-dom";
+import { useRouteError, useSubmit } from "react-router-dom";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { CustomButtonPrimary } from "../utils/custom-buttons";
-
-interface IError {
-  statusText: any;
-  message: any;
-}
+import { IError } from "../interfaces/global-interfaces";
 
 export default function RoutingErrorPage() {
   const submit = useSubmit();
@@ -15,8 +11,6 @@ export default function RoutingErrorPage() {
   }
   
   const error: IError = useRouteError() as IError;
-  const location = useLocation();
-  console.log("location.pathname:", location.pathname);
   return (
     <>
       <Stack

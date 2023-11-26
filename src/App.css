@@ -94,6 +94,12 @@
   transition-delay: 200ms;
 }
 
+.error-icon{
+  color: var(--error);
+  aspect-ratio: 1;
+  font-size: 8vh !important;
+}
+
 /* Overrides for Custom Select */
 .customSelectDownIcon{
   position: absolute;

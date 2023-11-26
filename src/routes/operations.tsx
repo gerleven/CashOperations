@@ -1,8 +1,5 @@
 //@ts-ignore
-import {
-  useLoaderData,
-  useSubmit,
-} from "react-router-dom";
+import { useLoaderData, useSubmit } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -11,13 +8,19 @@ import { Stack } from "@mui/material";
 import OperationRow from "../components/operation-row";
 import { useEffect, useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
-import { Ioperation } from "../interfaces/global-interfaces";
+import { IOperation } from "../interfaces/global-interfaces";
 // import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
 import { getOperationsList } from "../services/operations-service";
 
 export async function loader() {
-  const fetchedOperationsList: Ioperation[] | null = await getOperationsList();
+  const fetchedOperationsList: IOperation[] | null = await getOperationsList();
+  // if(!fetchedOperationsList){
+  //   throw new Response("", {
+  //     status: 404,
+  //     statusText: "Operations not Found"
+  //   });
+  // }
   return fetchedOperationsList;
 }
 
@@ -26,16 +29,19 @@ export async function action() {
 }
 
 export default function Operations() {
-  const fetchedOperationsList: Ioperation[] = useLoaderData() as Ioperation[];
+  const submit = useSubmit();
+  const fetchedOperationsList: IOperation[] = useLoaderData() as IOperation[];
+  if (!fetchedOperationsList) {
+    submit(null, { action: "/api-not-working" });
+  }
   //@ts-ignore
-  const operationsFullList: Ioperation[] = fetchedOperationsList;
+  const operationsFullList: IOperation[] = fetchedOperationsList;
   const [operationsFilteredList, setOperationsFilteredList] = useState<
-  Ioperation[]
+    IOperation[]
   >(fetchedOperationsList);
   const [amount, setAmount] = useState(calculateBalance());
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-  const submit = useSubmit();
   const handleOpenOperation = (id: number) => {
     submit(null, { action: "/detail/" + id });
   };
@@ -47,12 +53,9 @@ export default function Operations() {
   ];
 
   // CustomHook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
-  // const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(fetchedOperationsList);
+  // const [operationsFullList, setOperationsFullList] = useState<IOperation[]>(fetchedOperationsList);
   // useFetchOperations(setOperationsFullList, setOperationsFilteredList);
 
-  
-
-  
   useEffect(() => {
     setAmount(calculateBalance());
   }, [operationsFilteredList]);
@@ -65,7 +68,7 @@ export default function Operations() {
   const handleApplyFilters = () => {
     resetOperationFilteredList();
     if (selectedFilters.length != 0) {
-      const newList: Ioperation[] = operationsFullList.filter((operation) =>
+      const newList: IOperation[] = operationsFullList.filter((operation) =>
         selectedFilters.includes(operation.paymentDescription)
       );
       setOperationsFilteredList(newList);

@@ -1,13 +1,19 @@
 import { Stack } from "@mui/material";
 import OperationDetail from "../components/operation-detail";
 import { getOperationDetail } from "../services/operations-service";
-import { Ioperation } from "../interfaces/global-interfaces";
-import { useLoaderData } from "react-router-dom";
+import { IOperation } from "../interfaces/global-interfaces";
+import { useLoaderData, useSubmit } from "react-router-dom";
 
 export async function loader({ params }: any) {
-  const operationDetail: Ioperation | null = await getOperationDetail(
+  const operationDetail: IOperation | null = await getOperationDetail(
     params.id
   );
+  // if(!operationDetail){
+  //   throw new Response("", {
+  //     status: 404,
+  //     statusText: "Operation not Found"
+  //   });
+  // }
   return operationDetail;
 }
 
@@ -16,7 +22,11 @@ export async function action() {
 }
 
 export default function OperationDetails() {
-  const operationDetail: Ioperation = useLoaderData() as Ioperation;
+  const submit = useSubmit();
+  const operationDetail: IOperation = useLoaderData() as IOperation;
+  if (!operationDetail) {
+    submit(null, { action: "/api-not-working" });
+  }
 
   return (
     <>
