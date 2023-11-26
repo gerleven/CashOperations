@@ -7,7 +7,6 @@ export default function ApiNotWorking() {
   const submit = useSubmit();
 
   const handleUseTestData = () => {
-
     submit(null, { action: "/" });
   };
 
@@ -37,21 +36,11 @@ export default function ApiNotWorking() {
               Alternativas:
             </Typography>
             <Typography textAlign={"left"}>
-              <ul>
-                <li>
-                  <p>
-                    Corre la API ejecutando el comando <b>"node app.js"</b> en la
-                    ruta{" "}
-                    <b>
-                      <i>"challenge-mp/API/app.js"</i>
-                    </b>{" "}
-                    y reinicia la aplicacion
-                  </p>
-                </li>
-                <li>
-                  <p>Usa los datos de prueba:</p>
-                </li>
-              </ul>
+              <p>
+                • Corre la API ejecutando el comando <b>"node app.js"</b> en la
+                ruta <b>"challenge-mp/API/app.js"</b> y reinicia la aplicacion
+              </p>
+              <p>• Usa los datos de prueba:</p>
             </Typography>
 
             <CustomButtonPrimary onClick={handleUseTestData}>
