@@ -2,14 +2,15 @@ import "../App.css";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import { Stack, useTheme } from "@mui/material";
 import { CustomBaseButton } from "../utils/custom-buttons";
 
 import { Ioperation } from "../interfaces/global-interfaces";
 
-import {thumbnailPictureMap} from "../helpers/payment-picture-mapping"
+import { thumbnailPictureMap } from "../helpers/payment-picture-mapping";
+import rightArrowIcon from "../assets/icons/chevron_right.svg";
+import PriceFormatter from "../helpers/price-formatter";
 
 interface IOperationRow {
   operation: Ioperation;
@@ -20,7 +21,6 @@ export default function OperationRow({
   operation,
   handleOpenOperation,
 }: IOperationRow) {
-  
   const theme = useTheme();
   return (
     <>
@@ -78,11 +78,18 @@ export default function OperationRow({
             </Box>
             <Box sx={{ width: "30%" }}>
               <Stack direction="row" justifyContent="end" alignItems="center">
-                <Typography
-                  fontSize={"20px"}
-                  noWrap
-                >{`$ ${operation.amount}`}</Typography>
-                <KeyboardArrowRightIcon></KeyboardArrowRightIcon>
+                <Typography fontSize={"20px"} noWrap>
+                  {PriceFormatter(operation.amount)}
+                </Typography>
+                <Stack
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  style={{ marginLeft: "10px" }}
+                >
+                  <img src={rightArrowIcon} alt="rigth arrow icon" />
+                </Stack>
+                {/* <KeyboardArrowRightIcon></KeyboardArrowRightIcon> */}
               </Stack>
             </Box>
           </Stack>

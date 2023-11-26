@@ -86,3 +86,10 @@
 .noFocusBorder:focus {
   outline: none;
 }
+
+.css-b6ej45-MuiSvgIcon-root-MuiSelect-icon{
+  color: #ffffff !important;
+}
+.css-1g9s1h4-MuiSvgIcon-root-MuiSelect-icon{
+color: #ffffff !important;
+}
