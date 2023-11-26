@@ -7,7 +7,7 @@ import {
   CustomButtonPrimary,
   CustomButtonSecondary,
 } from "../utils/custom-buttons";
-import { ListSubheader, Stack, colors } from "@mui/material";
+import { ListSubheader, Stack} from "@mui/material";
 import { useState } from "react";
 import chevron_down from "../assets/icons/chevron_down.svg";
 
