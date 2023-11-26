@@ -27,9 +27,7 @@ let theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
-      styleOverrides: {
-        
-      },
+      styleOverrides: {},
     },
     MuiButton: {
       defaultProps: {},
@@ -73,7 +71,7 @@ let theme = createTheme({
     fontFamily: "MP-fonts",
     fontWeightLight: 300,
     fontWeightRegular: 400,
-  }
+  },
 });
 
 export default theme;

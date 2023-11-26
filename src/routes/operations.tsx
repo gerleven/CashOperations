@@ -33,7 +33,7 @@ export default function Operations() {
 
   const submit = useSubmit();
   const handleOpenOperation = (id: number) => {
-    submit(null, { action: "/detail/"+id });
+    submit(null, { action: "/detail/" + id });
   };
 
   const filtersList = [
@@ -103,28 +103,28 @@ export default function Operations() {
       </Box>
 
       {/* Operations List */}
-        <Stack
-          className="overFlowyScroll"
-          direction={"column"}
-          alignItems={"strech"}
-          justifyContent={"start"}
-        >
-          {operationsFilteredList.length == 0 ? (
-            <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
-              <p>
-                <i>Sin Items para mostrar</i>
-              </p>
-            </Typography>
-          ) : (
-            operationsFilteredList.map((operation, index) => (
-              <OperationRow
-                key={index}
-                operation={operation}
-                handleOpenOperation={handleOpenOperation}
-              ></OperationRow>
-            ))
-          )}
-        </Stack>
+      <Stack
+        className="overFlowyScroll"
+        direction={"column"}
+        alignItems={"strech"}
+        justifyContent={"start"}
+      >
+        {operationsFilteredList.length == 0 ? (
+          <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
+            <p>
+              <i>Sin Items para mostrar</i>
+            </p>
+          </Typography>
+        ) : (
+          operationsFilteredList.map((operation, index) => (
+            <OperationRow
+              key={index}
+              operation={operation}
+              handleOpenOperation={handleOpenOperation}
+            ></OperationRow>
+          ))
+        )}
+      </Stack>
     </>
   );
 }

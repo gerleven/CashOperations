@@ -26,7 +26,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./helpers/CustomTheme.tsx";
 import About from "./routes/about-page.tsx";
 
-
 const router = createHashRouter(
   [
     {

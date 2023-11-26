@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "../App.css";
 import Banner from "../components/banner";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
 export default function Root() {
   return (
@@ -13,21 +13,20 @@ export default function Root() {
         alignItems={"center"}
       >
         <Stack
-        className="app-wrapper"
-        direction={"column"}
-        justifyContent={"start"}
-        alignItems={"strech"}
-      >
+          className="app-wrapper"
+          direction={"column"}
+          justifyContent={"start"}
+          alignItems={"strech"}
+        >
           <Banner></Banner>
           <Stack
             direction={"column"}
             justifyContent={"start"}
             alignItems={"strech"}
-            sx={{flexGrow: 1}}
+            sx={{ flexGrow: 1 }}
           >
             <Outlet />
           </Stack>
-        
         </Stack>
       </Stack>
     </>

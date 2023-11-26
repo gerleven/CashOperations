@@ -4,8 +4,10 @@ import { getOperationDetail } from "../services/operations-service";
 import { Ioperation } from "../interfaces/global-interfaces";
 import { useLoaderData } from "react-router-dom";
 
-export async function loader({params}: any) {
-  const operationDetail: Ioperation|null = await getOperationDetail(params.id);
+export async function loader({ params }: any) {
+  const operationDetail: Ioperation | null = await getOperationDetail(
+    params.id
+  );
   return operationDetail;
 }
 

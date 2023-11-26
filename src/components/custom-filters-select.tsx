@@ -7,7 +7,7 @@ import {
   CustomButtonPrimary,
   CustomButtonSecondary,
 } from "../utils/custom-buttons";
-import { ListSubheader, Stack} from "@mui/material";
+import { ListSubheader, Stack } from "@mui/material";
 import { useState } from "react";
 import chevron_down from "../assets/icons/chevron_down.svg";
 
@@ -85,7 +85,7 @@ export default function CustomFiltersSelect({
         renderValue={() => `Filtros (${selectedFilters.length})`}
         MenuProps={MenuProps as {}}
         open={isOpen}
-        IconComponent={() => customSelectIconDown(isOpen,handleOpen)}
+        IconComponent={() => customSelectIconDown(isOpen, handleOpen)}
       >
         {filtersList.map((filter) => (
           <MenuItem key={filter} value={filter}>
@@ -120,7 +120,11 @@ export default function CustomFiltersSelect({
 const customSelectIconDown = (isOpen: boolean, handleOpen: any) => {
   return (
     <div className="customSelectDownIcon" onClick={handleOpen}>
-      {!isOpen ? <img src={chevron_down} /> : <img src={chevron_down} style={{transform: "rotate(180deg)"}}/>}
+      {!isOpen ? (
+        <img src={chevron_down} />
+      ) : (
+        <img src={chevron_down} style={{ transform: "rotate(180deg)" }} />
+      )}
     </div>
   );
 };

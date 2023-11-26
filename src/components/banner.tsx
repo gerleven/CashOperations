@@ -6,7 +6,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import { Box, Stack, useTheme } from "@mui/material";
 
-
 export default function Banner() {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -18,20 +17,34 @@ export default function Banner() {
   };
   return (
     <>
-      <Stack className="banner" direction="row" alignItems={"center"} justifyContent={"start"} sx={{backgroundColor: theme.palette.blueBanner.main}}>
-          <IconButton className="noFocusBorder" sx={{ marginLeft: "16px" }} onClick={handleBack}>
-            <ArrowBackIcon sx={{
+      <Stack
+        className="banner"
+        direction="row"
+        alignItems={"center"}
+        justifyContent={"start"}
+        sx={{ backgroundColor: theme.palette.blueBanner.main }}
+      >
+        <IconButton
+          className="noFocusBorder"
+          sx={{ marginLeft: "16px" }}
+          onClick={handleBack}
+        >
+          <ArrowBackIcon
+            sx={{
               height: "32px",
               width: "32px",
               color: theme.palette.common.white,
-            }}/>
-          </IconButton>
-          <Box className="banner-logo">
-            <img src={logo} alt="Mercado_Pago_imagen" onClick={handleClickLogo} 
+            }}
+          />
+        </IconButton>
+        <Box className="banner-logo">
+          <img
+            src={logo}
+            alt="Mercado_Pago_imagen"
+            onClick={handleClickLogo}
             // style={{cursor: "pointer"}}
-            />
-          </Box>
-        
+          />
+        </Box>
       </Stack>
     </>
   );
