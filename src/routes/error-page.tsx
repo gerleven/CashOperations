@@ -15,7 +15,6 @@ export default function ErrorPage() {
   }
   
   const error: IError = useRouteError() as IError;
-  const location = useLocation();
     return (
     <>
       <Stack
