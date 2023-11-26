@@ -3,28 +3,36 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { CustomButtonPrimary, CustomButtonSecondary } from "../utils/custom-buttons";
-import { ListSubheader, Stack } from "@mui/material";
+import {
+  CustomButtonPrimary,
+  CustomButtonSecondary,
+} from "../utils/custom-buttons";
+import { ListSubheader, Stack, colors } from "@mui/material";
 import { useState } from "react";
+import chevron_down from "../assets/icons/chevron_down.svg";
 
-interface ICustomFiltersSelect{
-    filtersList: string[];
-     selectedFilters: string[];
-     setSelectedFilters: Function;
-     handleApplyFilters: Function;
-     handleCleanFilters: Function;
+interface ICustomFiltersSelect {
+  filtersList: string[];
+  selectedFilters: string[];
+  setSelectedFilters: Function;
+  handleApplyFilters: Function;
+  handleCleanFilters: Function;
 }
 
-export default function CustomFiltersSelect({filtersList, selectedFilters, setSelectedFilters, handleApplyFilters, handleCleanFilters}: ICustomFiltersSelect) {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+export default function CustomFiltersSelect({
+  filtersList,
+  selectedFilters,
+  setSelectedFilters,
+  handleApplyFilters,
+  handleCleanFilters,
+}: ICustomFiltersSelect) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleChange = (event: SelectChangeEvent<typeof selectedFilters>) => {
     const {
       target: { value },
     } = event;
-    setSelectedFilters(
-      typeof value === "string" ? value.split(",") : value
-    );
+    setSelectedFilters(typeof value === "string" ? value.split(",") : value);
   };
   const handleApply = () => {
     handleApplyFilters();
@@ -36,7 +44,7 @@ export default function CustomFiltersSelect({filtersList, selectedFilters, setSe
     handleClose();
   };
 
-    const handleClose = () => {
+  const handleClose = () => {
     setIsOpen(false);
   };
 
@@ -77,10 +85,14 @@ export default function CustomFiltersSelect({filtersList, selectedFilters, setSe
         renderValue={() => `Filtros (${selectedFilters.length})`}
         MenuProps={MenuProps as {}}
         open={isOpen}
+        IconComponent={() => customSelectIconDown(isOpen,handleOpen)}
       >
         {filtersList.map((filter) => (
           <MenuItem key={filter} value={filter}>
-            <Checkbox checked={selectedFilters.indexOf(filter) > -1} color="primary" />
+            <Checkbox
+              checked={selectedFilters.indexOf(filter) > -1}
+              color="primary"
+            />
             <ListItemText primary={filter} />
           </MenuItem>
         ))}
@@ -104,3 +116,11 @@ export default function CustomFiltersSelect({filtersList, selectedFilters, setSe
     </FormControl>
   );
 }
+
+const customSelectIconDown = (isOpen: boolean, handleOpen: any) => {
+  return (
+    <div style={{ position: "absolute", right: "10px",  cursor: "pointer"}} onClick={handleOpen}>
+      {!isOpen ? <img src={chevron_down} /> : <img src={chevron_down} style={{transform: "rotate(180deg)"}}/>}
+    </div>
+  );
+};

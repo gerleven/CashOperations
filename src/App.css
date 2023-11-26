@@ -87,9 +87,7 @@
   outline: none;
 }
 
-.css-b6ej45-MuiSvgIcon-root-MuiSelect-icon{
-  color: #ffffff !important;
-}
-.css-1g9s1h4-MuiSvgIcon-root-MuiSelect-icon{
-color: #ffffff !important;
+/* remove the border in custom Select */
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  display: none;
 }
