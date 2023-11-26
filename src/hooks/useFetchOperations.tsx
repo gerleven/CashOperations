@@ -20,7 +20,7 @@ export function useFetchOperations(
           setOperationsFullList(operationsFetched);
           setOperationsFilteredList(operationsFetched);
         } catch (error: any) {
-          if(window.confirm("La API no responde, desea cargar data de ejemplo?")){
+          if(window.confirm("La API no responde, desea cargar datos de ejemplo?")){
             //If API not work, you can use this fake data:
             setOperationsFullList(hardcodedOperationsList.slice(0, 30));
             setOperationsFilteredList(hardcodedOperationsList.slice(0, 30));

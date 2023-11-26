@@ -16,7 +16,7 @@ export async function action() {
 }
 
 export default function OperationDetails() {
-  const operationDetail = useLoaderData();
+  const operationDetail: Ioperation = useLoaderData() as Ioperation;
 
   return (
     <>
