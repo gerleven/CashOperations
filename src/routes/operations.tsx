@@ -108,7 +108,6 @@ export default function Operations() {
           direction={"column"}
           alignItems={"strech"}
           justifyContent={"start"}
-          sx={{ padding: "15px 0" }}
         >
           {operationsFilteredList.length == 0 ? (
             <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
