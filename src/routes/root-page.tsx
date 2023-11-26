@@ -12,16 +12,23 @@ export default function Root() {
         justifyContent={"start"}
         alignItems={"center"}
       >
-        <Box className="app-wrapper">
+        <Stack
+        className="app-wrapper"
+        direction={"column"}
+        justifyContent={"start"}
+        alignItems={"strech"}
+      >
           <Banner></Banner>
           <Stack
             direction={"column"}
             justifyContent={"start"}
-            alignItems={"center"}
+            alignItems={"strech"}
+            sx={{flexGrow: 1}}
           >
             <Outlet />
           </Stack>
-        </Box>
+        
+        </Stack>
       </Stack>
     </>
   );

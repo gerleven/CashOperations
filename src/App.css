@@ -40,8 +40,9 @@
 }
 
 .overFlowyScroll {
-  max-height: 85vh;
   overflow-y: auto;
+  flex-grow: 1;
+  height: 80vh;
 }
 
 .banner {
@@ -87,7 +88,17 @@
   outline: none;
 }
 
+/* Overrides for Custom Select */
+.customSelectDownIcon{
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
 /* remove the border in custom Select */
 .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
   display: none;
+}
+.css-zbhh1g-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  padding: 14px 30px 14px 14px !important;
 }

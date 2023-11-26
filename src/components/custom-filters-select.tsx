@@ -119,7 +119,7 @@ export default function CustomFiltersSelect({
 
 const customSelectIconDown = (isOpen: boolean, handleOpen: any) => {
   return (
-    <div style={{ position: "absolute", right: "10px",  cursor: "pointer"}} onClick={handleOpen}>
+    <div className="customSelectDownIcon" onClick={handleOpen}>
       {!isOpen ? <img src={chevron_down} /> : <img src={chevron_down} style={{transform: "rotate(180deg)"}}/>}
     </div>
   );

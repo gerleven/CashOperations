@@ -77,7 +77,7 @@ export default function Operations() {
 
   return (
     <>
-      <Box sx={{ width: "100%", height: "80px", padding: "16px" }}>
+      <Box sx={{ height: "80px", padding: "16px" }}>
         {/* Header */}
         <Stack
           direction="row"
@@ -103,8 +103,8 @@ export default function Operations() {
       </Box>
 
       {/* Operations List */}
-      <Box className="overFlowyScroll" sx={{ width: "100%" }}>
         <Stack
+          className="overFlowyScroll"
           direction={"column"}
           alignItems={"strech"}
           justifyContent={"start"}
@@ -125,7 +125,6 @@ export default function Operations() {
             ))
           )}
         </Stack>
-      </Box>
     </>
   );
 }
