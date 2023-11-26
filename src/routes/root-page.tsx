@@ -1,9 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import "../App.css";
 import Banner from "../components/banner";
 import { Stack } from "@mui/material";
 
 export default function Root() {
+  //This hook provide props about the navigations, here is used to check the state and give loading status feedback
+  const navigation = useNavigation();
   return (
     <>
       <Stack
@@ -24,6 +26,7 @@ export default function Root() {
             justifyContent={"start"}
             alignItems={"strech"}
             sx={{ flexGrow: 1 }}
+            className={navigation.state === "loading" ? "loading" : ""}
           >
             <Outlet />
           </Stack>

@@ -1,5 +1,8 @@
 //@ts-ignore
-import { useLoaderData, useNavigate, useNavigation, useSubmit } from "react-router-dom";
+import {
+  useLoaderData,
+  useSubmit,
+} from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -25,9 +28,11 @@ export async function action() {
 export default function Operations() {
   const fetchedOperationsList: Ioperation[] = useLoaderData() as Ioperation[];
   //@ts-ignore
-  const [amount, setAmount] = useState(9999.99);
   const operationsFullList: Ioperation[] = fetchedOperationsList;
-  const [operationsFilteredList, setOperationsFilteredList] = useState<Ioperation[]>(fetchedOperationsList);
+  const [operationsFilteredList, setOperationsFilteredList] = useState<
+  Ioperation[]
+  >(fetchedOperationsList);
+  const [amount, setAmount] = useState(calculateBalance());
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const submit = useSubmit();
@@ -45,17 +50,11 @@ export default function Operations() {
   // const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(fetchedOperationsList);
   // useFetchOperations(setOperationsFullList, setOperationsFilteredList);
 
-  //This hook provide props about the navigations, here is used to check the state and give loading status feedback
-  const navigation = useNavigation();
+  
 
+  
   useEffect(() => {
-    const balance = operationsFilteredList.reduce(
-      (accumulator, currentValue) => {
-        return accumulator + currentValue.amount;
-      },
-      0
-    );
-    setAmount(balance);
+    setAmount(calculateBalance());
   }, [operationsFilteredList]);
 
   // Functions
@@ -77,6 +76,12 @@ export default function Operations() {
     setSelectedFilters([]);
     resetOperationFilteredList();
   };
+
+  function calculateBalance() {
+    return operationsFilteredList.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.amount;
+    }, 0);
+  }
 
   return (
     <>
@@ -107,27 +112,26 @@ export default function Operations() {
 
       {/* Operations List */}
       <Stack
-        className={`overFlowyScroll ${(navigation.state === "loading" ? "loading" : "")}`}
+        className={"overFlowyScroll"}
         direction={"column"}
         alignItems={"strech"}
         justifyContent={"start"}
       >
-        
-          {operationsFilteredList.length == 0 ? (
-            <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
-              <p>
-                <i>Sin Items para mostrar</i>
-              </p>
-            </Typography>
-          ) : (
-            operationsFilteredList.map((operation, index) => (
-              <OperationRow
-                key={index}
-                operation={operation}
-                handleOpenOperation={handleOpenOperation}
-              ></OperationRow>
-            ))
-          )}
+        {operationsFilteredList.length == 0 ? (
+          <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
+            <p>
+              <i>Sin Items para mostrar</i>
+            </p>
+          </Typography>
+        ) : (
+          operationsFilteredList.map((operation, index) => (
+            <OperationRow
+              key={index}
+              operation={operation}
+              handleOpenOperation={handleOpenOperation}
+            ></OperationRow>
+          ))
+        )}
       </Stack>
     </>
   );
