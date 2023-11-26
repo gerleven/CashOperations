@@ -1,6 +1,31 @@
 import { Ioperation } from "../interfaces/global-interfaces";
 import hardcodedOperationsList from "../helpers/fake-data";
 
+//Get the full list of operations
+export async function getOperationsList() {
+  if (import.meta.env.DEV) {
+    //When run local, ir call the API:
+    const url = `${import.meta.env.VITE_URL_API}/operations`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      const operationsList: Ioperation[] = result.operations as Ioperation[];
+      // operationsList = operationsList.slice(0, 2); //To test with a reduced list
+      return operationsList;
+    } catch (error: any) {
+      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+        //If API not work, you can use this fake data:
+        return hardcodedOperationsList as Ioperation[];
+      }
+      throw new Error(error);
+    }
+  } else {
+    return hardcodedOperationsList as Ioperation[];
+  }
+}
+
+//Get a operation detail
 export async function getOperationDetail(id: number) {
   if (import.meta.env.DEV) {
     //When run local, ir call the API:
@@ -12,17 +37,17 @@ export async function getOperationDetail(id: number) {
       const operationDetail: Ioperation = result.operation as Ioperation;
       return operationDetail;
     } catch (error: any) {
-      if (window.confirm("La API no responde, desea cargar data de ejemplo?")) {
-        return loadHarcodedData(id);
+      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+        return loadHarcodedDataOperationDetail(id);
       }
       throw new Error(error);
     }
   } else {
-    return loadHarcodedData(id);
+    return loadHarcodedDataOperationDetail(id);
   }
 }
 
-function loadHarcodedData(id: number) {
+function loadHarcodedDataOperationDetail(id: number) {
   //If not running local or API not work, it'll use hardcoded data or an example in case the operation doesn't exist in the hardcoded list:
   return (
     hardcodedOperationsList.find((x) => x.id == id) ||

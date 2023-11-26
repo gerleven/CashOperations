@@ -1,5 +1,5 @@
 //@ts-ignore
-import { useLoaderData, useNavigate, useSubmit } from "react-router-dom";
+import { useLoaderData, useNavigate, useNavigation, useSubmit } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -9,11 +9,13 @@ import OperationRow from "../components/operation-row";
 import { useEffect, useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
 import { Ioperation } from "../interfaces/global-interfaces";
-import { useFetchOperations } from "../hooks/useFetchOperations";
+// import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
+import { getOperationsList } from "../services/operations-service";
 
 export async function loader() {
-  return null;
+  const fetchedOperationsList: Ioperation[] | null = await getOperationsList();
+  return fetchedOperationsList;
 }
 
 export async function action() {
@@ -21,14 +23,11 @@ export async function action() {
 }
 
 export default function Operations() {
+  const fetchedOperationsList: Ioperation[] = useLoaderData() as Ioperation[];
   //@ts-ignore
   const [amount, setAmount] = useState(9999.99);
-  const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(
-    []
-  );
-  const [operationsFilteredList, setOperationsFilteredList] = useState<
-    Ioperation[]
-  >([]);
+  const operationsFullList: Ioperation[] = fetchedOperationsList;
+  const [operationsFilteredList, setOperationsFilteredList] = useState<Ioperation[]>(fetchedOperationsList);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const submit = useSubmit();
@@ -42,8 +41,11 @@ export default function Operations() {
     "Cobro en efectivo",
   ];
 
-  // Hook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
-  useFetchOperations(setOperationsFullList, setOperationsFilteredList);
+  // CustomHook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
+  // const [operationsFullList, setOperationsFullList] = useState<Ioperation[]>(fetchedOperationsList);
+  // useFetchOperations(setOperationsFullList, setOperationsFilteredList);
+
+  
 
   useEffect(() => {
     const balance = operationsFilteredList.reduce(
@@ -109,21 +111,22 @@ export default function Operations() {
         alignItems={"strech"}
         justifyContent={"start"}
       >
-        {operationsFilteredList.length == 0 ? (
-          <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
-            <p>
-              <i>Sin Items para mostrar</i>
-            </p>
-          </Typography>
-        ) : (
-          operationsFilteredList.map((operation, index) => (
-            <OperationRow
-              key={index}
-              operation={operation}
-              handleOpenOperation={handleOpenOperation}
-            ></OperationRow>
-          ))
-        )}
+        
+          {operationsFilteredList.length == 0 ? (
+            <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
+              <p>
+                <i>Sin Items para mostrar</i>
+              </p>
+            </Typography>
+          ) : (
+            operationsFilteredList.map((operation, index) => (
+              <OperationRow
+                key={index}
+                operation={operation}
+                handleOpenOperation={handleOpenOperation}
+              ></OperationRow>
+            ))
+          )}
       </Stack>
     </>
   );
