@@ -12,6 +12,22 @@
   --error: #a80000;
 }
 
+@font-face {
+  font-family: "MP-Fonts";
+  src: url("./assets/fonts/proxima-nova-300.woff2") format("woff2"),
+    url("./assets/fonts/proxima-nova-300.ttf") format("truetype");
+
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "MP-Fonts";
+  src: url("./assets/fonts/proxima-nova-400.woff2") format("woff2"),
+    url("./assets/fonts/proxima-nova-400.ttf") format("truetype");
+
+  font-weight: 400;
+}
+
 .fullscreen {
   background-color: var(--light-grey);
   height: 100vh;
@@ -20,10 +36,10 @@
 .app-wrapper {
   background-color: var(--grey);
   flex-grow: 1;
-  aspect-ratio: 1/2;  
+  aspect-ratio: 1/2;
 }
 
-.overFlowyScroll{
+.overFlowyScroll {
   max-height: 85vh;
   overflow-y: auto;
 }
@@ -47,7 +63,7 @@
   height: 42px;
 }
 
-.detailsPanel{
+.detailsPanel {
   background-color: var(--white);
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(86, 86, 86, 0.55);
@@ -57,7 +73,7 @@
   aspect-ratio: 1;
 }
 
-.paymentPictureContainer{
+.paymentPictureContainer {
   border: solid 2px var(--light-grey);
   border-radius: 50%;
   background-color: var(--white);
@@ -67,6 +83,6 @@
   filter: brightness(0.95);
 }
 
-.noFocusBorder:focus{
+.noFocusBorder:focus {
   outline: none;
 }

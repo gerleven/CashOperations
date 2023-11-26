@@ -69,6 +69,11 @@ let theme = createTheme({
       },
     },
   },
+  typography: {
+    fontFamily: "MP-fonts",
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+  }
 });
 
 export default theme;
