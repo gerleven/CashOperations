@@ -21,6 +21,7 @@ import {
 } from "./routes/operation-details.tsx";
 
 import ErrorPage from "./routes/error-page.tsx";
+import RoutingErrorPage from "./routes/routing-error-page.tsx";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./helpers/CustomTheme.tsx";
@@ -31,7 +32,7 @@ const router = createHashRouter(
     {
       path: "/",
       element: <Root />,
-      errorElement: <ErrorPage />,
+      errorElement: <RoutingErrorPage />,
       children: [
         {
           errorElement: <ErrorPage />,

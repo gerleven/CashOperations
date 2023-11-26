@@ -8,7 +8,7 @@ interface IError {
   message: any;
 }
 
-export default function ErrorPage() {
+export default function RoutingErrorPage() {
   const submit = useSubmit();
   const handleGoBack=()=>{
     submit(null, { action: "/" });
@@ -16,13 +16,14 @@ export default function ErrorPage() {
   
   const error: IError = useRouteError() as IError;
   const location = useLocation();
-    return (
+  console.log("location.pathname:", location.pathname);
+  return (
     <>
       <Stack
         direction="column"
         alignItems={"center"}
         justifyContent={"center"}
-        sx={{ width: "100%"}}
+        sx={{ width: "100vw"}}
       >
         <Box className="detailsPanel">
           <Stack
@@ -31,7 +32,7 @@ export default function ErrorPage() {
             justifyContent={"center"}
           >
             <Typography variant="h2" fontSize={"35px"}>
-              Algo salio mal...
+            Error de ruteo...
             </Typography>
             <br />
             <br />
@@ -41,7 +42,7 @@ export default function ErrorPage() {
             <br />
             
             <Typography variant="caption" fontSize={"15px"} textAlign={"left"}>
-              <p >Disculpe, ocurrió un error inesperado:</p>
+            <p >La ruta solicitada no existe...</p>
               <p>
                 <i>{error.statusText || error.message}</i>
               </p>
