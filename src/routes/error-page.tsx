@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { useRouteError, useSubmit } from "react-router-dom";
+import { useLocation, useRouteError, useSubmit } from "react-router-dom";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { CustomButtonPrimary } from "../utils/custom-buttons";
 
@@ -15,13 +15,14 @@ export default function ErrorPage() {
   }
   
   const error: IError = useRouteError() as IError;
+  const location = useLocation();
   return (
     <>
       <Stack
         direction="column"
         alignItems={"center"}
         justifyContent={"center"}
-        sx={{ width: "100vw" }}
+        sx={{ width: (location.pathname=="/list")?"100%":"100vw" }}
       >
         <Box className="detailsPanel">
           <Stack
