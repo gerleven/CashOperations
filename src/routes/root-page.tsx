@@ -1,4 +1,4 @@
-import "../App.css";
+import "../styles/App.css";
 import { createContext } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import { Stack } from "@mui/material";

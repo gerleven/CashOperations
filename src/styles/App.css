@@ -1,9 +1,7 @@
 :root {
   --blue-banner: #009ee3;
   --primary: #3483fa;
-  --primary-light: #3c8aff;
   --secondary: rgba(65, 137, 230, 0.15);
-  --secondary-light: rgba(73, 140, 227, 0.25);
   --white: #ffffff;
   --light-grey: #ededed;
   --grey: #d9d9d9;
@@ -14,16 +12,16 @@
 
 @font-face {
   font-family: "MP-Fonts";
-  src: url("./assets/fonts/proxima-nova-300.woff2") format("woff2"),
-    url("./assets/fonts/proxima-nova-300.ttf") format("truetype");
+  src: url("../assets/fonts/proxima-nova-300.woff2") format("woff2"),
+    url("../assets/fonts/proxima-nova-300.ttf") format("truetype");
 
   font-weight: 300;
 }
 
 @font-face {
   font-family: "MP-Fonts";
-  src: url("./assets/fonts/proxima-nova-400.woff2") format("woff2"),
-    url("./assets/fonts/proxima-nova-400.ttf") format("truetype");
+  src: url("../assets/fonts/proxima-nova-400.woff2") format("woff2"),
+    url("../assets/fonts/proxima-nova-400.ttf") format("truetype");
 
   font-weight: 400;
 }

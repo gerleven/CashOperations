@@ -117,6 +117,7 @@ export default function CustomFiltersSelect({
   );
 }
 
+//To use the given icon in assets:
 const customSelectIconDown = (isOpen: boolean, handleOpen: any) => {
   return (
     <div className="customSelectDownIcon" onClick={handleOpen}>

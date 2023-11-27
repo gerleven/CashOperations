@@ -1,4 +1,4 @@
-import "../App.css";
+import "../styles/App.css";
 import logo from "../assets/icons/mp_logo.svg";
 
 import IconButton from "@mui/material/IconButton";

@@ -1,15 +1,12 @@
-import "../App.css";
+import "../styles/App.css";
 import Box from "@mui/material/Box";
-
 import Typography from "@mui/material/Typography";
-
 import { Stack, useTheme } from "@mui/material";
-import { CustomBaseButton } from "../utils/custom-buttons";
 
-import { IOperation } from "../interfaces/global-interfaces";
-
-import { thumbnailPictureMap } from "../helpers/payment-picture-mapping";
 import rightArrowIcon from "../assets/icons/chevron_right.svg";
+import { CustomBaseButton } from "../utils/custom-buttons";
+import { IOperation } from "../interfaces/global-interfaces";
+import { thumbnailPictureMap } from "../helpers/payment-picture-mapping";
 import PriceFormatter from "../helpers/price-formatter";
 
 interface IOperationRow {

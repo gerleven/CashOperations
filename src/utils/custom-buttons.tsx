@@ -5,10 +5,10 @@ import { Box, ButtonBase, ButtonBaseProps } from "@mui/material";
 
 export const CustomBaseButton = styled(ButtonBase)<ButtonBaseProps>(() => ({
   "&:hover": {
-    filter: "brightness(0.95)",
+    filter: "brightness(0.95)", //hover effect in the operations rows 
   },
   "&:focus": {
-    outline: "none",
+    outline: "none", //hide focus border
   },
 }));
 export const CustomButtonPrimary = styled(Button)<ButtonProps>(({ theme }) => ({
@@ -16,7 +16,7 @@ export const CustomButtonPrimary = styled(Button)<ButtonProps>(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   "&:hover": {
     backgroundColor: theme.palette.primary.main,
-    filter: "brightness(0.95)",
+    filter: "brightness(0.95)", //hover effect in custom buttons
   },
   "&:focus": {
     outline: "none",
@@ -29,7 +29,7 @@ export const CustomButtonSecondary = styled(Button)<ButtonProps>(
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.main,
-      filter: "brightness(0.85)",
+      filter: "brightness(0.85)", //hover effect in custom buttons
     },
     "&:focus": {
       outline: "none",

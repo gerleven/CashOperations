@@ -1,14 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { useRouteError, useSubmit } from "react-router-dom";
+import { Form, useRouteError } from "react-router-dom";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { CustomButtonPrimary } from "../utils/custom-buttons";
 import { IError } from "../interfaces/global-interfaces";
 
 export default function ErrorPage() {
-  const submit = useSubmit();
-  const handleGoBack=()=>{
-    submit(null, { action: "/" });
-  }
   
   const error: IError = useRouteError() as IError;
     return (
@@ -39,7 +35,10 @@ export default function ErrorPage() {
               </p>
             </Typography>
 
-            <CustomButtonPrimary onClick={handleGoBack}>Volver</CustomButtonPrimary>
+            <Form method="get" action="/">
+              <CustomButtonPrimary type="submit">Volver</CustomButtonPrimary>
+
+            </Form>
             
           </Stack>
         </Box>

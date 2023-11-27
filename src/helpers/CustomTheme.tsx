@@ -13,10 +13,9 @@ declare module "@mui/material/styles" {
 
 let theme = createTheme({
   palette: {
-    primary: { main: "#3483FA", light: "#3c8aff" },
+    primary: { main: "#3483FA" },
     secondary: {
       main: "rgba(65, 137, 230, 0.15);",
-      light: "rgba(73, 140, 227, 0.25)",
     },
     common: { black: "rgba(0, 0, 0, 0.90);", white: "#FFFFFF" },
     grey: { 100: "#ededed", 200: "#d9d9d9", 300: "rgba(0, 0, 0, 0.55);" },
@@ -68,7 +67,7 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "MP-fonts"
+    fontFamily: "MP-fonts", //@Font-face created in CSS with the given font files
   },
 });
 
