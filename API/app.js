@@ -32,7 +32,7 @@ app.get("/operations", (req, res) => {
 app.get('/operation/:id', (req, res) => {
   const requestedId = parseInt(req.params.id);
 
-  // Buscar la operación con el ID solicitado
+  // Find the operation with the requested ID
   const operation = operations.find(op => op.id === requestedId);
 
   if (operation) {
