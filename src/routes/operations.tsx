@@ -12,6 +12,8 @@ import { IOperation } from "../interfaces/global-interfaces";
 // import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
 import { getOperationsList } from "../services/operations-service";
+import {useContext} from 'react';
+import {MyContext} from "../routes/root-page";
 
 export async function loader() {
   const fetchedOperationsList: IOperation[] | null = await getOperationsList();
@@ -29,6 +31,8 @@ export async function action() {
 }
 
 export default function Operations() {
+  const {useFakeData}: any = useContext(MyContext);
+  
   const submit = useSubmit();
   const fetchedOperationsList: IOperation[] = useLoaderData() as IOperation[];
   if (!fetchedOperationsList) {

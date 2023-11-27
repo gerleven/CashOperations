@@ -22,3 +22,8 @@ export interface IError {
   statusText: any;
   message: any;
 }
+
+export interface IMyContext{
+  useFakeData: boolean;
+  selectedFilters: string[];
+}

@@ -2,12 +2,39 @@ import { Outlet, useNavigation } from "react-router-dom";
 import "../App.css";
 import Banner from "../components/banner";
 import { Stack } from "@mui/material";
+import {createContext} from 'react';
+import { IMyContext } from "../interfaces/global-interfaces";
+import { useState } from "react";
+
+export const MyContext = createContext<IMyContext>({} as IMyContext);
 
 export default function Root() {
-  //This hook provide props about the navigations, here is used to check the state and give loading status feedback
   const navigation = useNavigation();
+
+  const [useFakeData, setUseFakeData] = useState<boolean>(false);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const fakeDataOn = ()=>{
+    setUseFakeData(true);
+  }
+  const fakeDataOff = ()=>{
+    setUseFakeData(false);
+  }
+  const setTheSelectedFilters = (filters: string[])=>{
+    setSelectedFilters(filters);
+  }
+  const contextDefaultValue = {
+    useFakeData: useFakeData,
+    selectedFilters: selectedFilters,
+    fakeDataOn: fakeDataOn,
+    fakeDataOff: fakeDataOff,
+    setTheSelectedFilters: setTheSelectedFilters
+  }
+
+
   return (
     <>
+    <MyContext.Provider value={contextDefaultValue}>
       <Stack
         className="fullscreen"
         direction={"column"}
@@ -32,6 +59,7 @@ export default function Root() {
           </Stack>
         </Stack>
       </Stack>
+    </MyContext.Provider>
     </>
   );
 }

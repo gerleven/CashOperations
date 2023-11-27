@@ -2,11 +2,16 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useSubmit } from "react-router-dom";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { CustomButtonPrimary } from "../utils/custom-buttons";
+import {useContext} from 'react';
+import {MyContext} from "../routes/root-page";
 
 export default function ApiNotWorking() {
+  const {fakeDataOn}: any = useContext(MyContext);
+  
   const submit = useSubmit();
 
   const handleUseTestData = () => {
+    fakeDataOn();
     submit(null, { action: "/" });
   };
 
@@ -40,12 +45,12 @@ export default function ApiNotWorking() {
                 • Corre la API ejecutando el comando <b>"node app.js"</b> en la
                 ruta <b>"challenge-mp/API/app.js"</b> y reinicia la aplicacion
               </p>
-              {/* <p>• Usa los datos de prueba:</p> */}
+              <p>• Usa los datos de prueba:</p>
             </Typography>
 
-            {/* <CustomButtonPrimary onClick={handleUseTestData}>
+            <CustomButtonPrimary onClick={handleUseTestData}>
               Usar datos de prueba
-            </CustomButtonPrimary> */}
+            </CustomButtonPrimary>
           </Stack>
         </Box>
       </Stack>
