@@ -1,7 +1,7 @@
 import { IOperation } from "../interfaces/global-interfaces";
 
-//NOTA:
-// Para evitar tener que subir la API a un host, se provee esta lista de datos de prueba que serán usados cuando la API no este corriendo.
+//NOTE:
+// To avoid having to upload the API to a host, this list of test data is provided that will be used when the API is not running.
 
 const hardcodedOperationsList: IOperation[] = [
   {
