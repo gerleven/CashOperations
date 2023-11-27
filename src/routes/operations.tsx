@@ -12,38 +12,51 @@ import { IOperation } from "../interfaces/global-interfaces";
 // import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
 import { getOperationsList } from "../services/operations-service";
-import {useContext} from 'react';
-import {MyContext} from "../routes/root-page";
+import { useContext } from "react";
+import { MyContext } from "../routes/root-page";
 
+//Router Loader:
 export async function loader() {
-  const fetchedOperationsList: IOperation[] | null = await getOperationsList();
-  // if(!fetchedOperationsList){
-  //   throw new Response("", {
-  //     status: 404,
-  //     statusText: "Operations not Found"
-  //   });
-  // }
+  const fetchedOperationsList: IOperation[] | undefined =
+    await getOperationsList();
+  if (!fetchedOperationsList) {
+    throw new Response("", {
+      status: 404,
+      statusText: "Operations not Found",
+    });
+  }
   return fetchedOperationsList;
 }
 
+//Actions Router
 export async function action() {
+  //React Router V6.4 use this to manage actions like put post and delete  (not used in this case)
   return null;
 }
 
 export default function Operations() {
   const fetchedOperationsList: IOperation[] = useLoaderData() as IOperation[];
-  
-  //@ts-ignore
+
   const operationsFullList: IOperation[] = fetchedOperationsList;
+
+  const { selectedFilters, setSelectedFilters } = useContext(MyContext);
+
+  const getFilteredList = (): IOperation[] => {
+    return selectedFilters.length === 0
+      ? (operationsFullList as IOperation[])
+      : (operationsFullList.filter((operation) =>
+          selectedFilters.includes(operation.paymentDescription)
+        ) as IOperation[]);
+  };
+
   const [operationsFilteredList, setOperationsFilteredList] = useState<
-  IOperation[]
-  >([]);
-  const [amount, setAmount] = useState(calculateBalance());
-  const {selectedFilters,setSelectedFilters} = useContext(MyContext);
-  // const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  
+    IOperation[]
+  >(getFilteredList());
+
+  const [amount, setAmount] = useState<number>(calculateBalance());
+
   const submit = useSubmit();
-    
+
   const handleOpenOperation = (id: number) => {
     submit(null, { action: "/detail/" + id });
   };
@@ -62,8 +75,10 @@ export default function Operations() {
     setAmount(calculateBalance());
   }, [operationsFilteredList]);
 
-  useEffect(() => {handleApplyFilters()}, []);
-  
+  useEffect(() => {
+    handleApplyFilters();
+  }, []);
+
   // Functions
   const resetOperationFilteredList = () => {
     setOperationsFilteredList(operationsFullList);
@@ -123,15 +138,9 @@ export default function Operations() {
         direction={"column"}
         alignItems={"strech"}
         justifyContent={"start"}
-      >{(operationsFilteredList.length>0) && operationsFilteredList.map((operation, index) => (
-        <OperationRow
-          key={index}
-          operation={operation}
-          handleOpenOperation={handleOpenOperation}
-        ></OperationRow>
-      ))}
-        {/* {operationsFilteredList.length == 0 ? (
-          <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
+      >
+        {operationsFilteredList.length == 0 ? (
+          <Typography fontSize={"15px"} textAlign={"center"}>
             <p>
               <i>Sin Items para mostrar</i>
             </p>
@@ -144,7 +153,7 @@ export default function Operations() {
               handleOpenOperation={handleOpenOperation}
             ></OperationRow>
           ))
-        )} */}
+        )}
       </Stack>
     </>
   );

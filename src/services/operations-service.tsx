@@ -19,7 +19,6 @@ export async function getOperationsList() {
         return hardcodedOperationsList as IOperation[];
       }
       // throw new Error(error);
-      return null;
     }
   } else {
     return hardcodedOperationsList as IOperation[];
@@ -42,7 +41,6 @@ export async function getOperationDetail(id: number) {
         return loadHarcodedDataOperationDetail(id);
       }
       // throw new Error(error);
-      return null;
     }
   } else {
     return loadHarcodedDataOperationDetail(id);

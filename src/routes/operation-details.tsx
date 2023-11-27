@@ -5,15 +5,15 @@ import { IOperation } from "../interfaces/global-interfaces";
 import { useLoaderData, useSubmit } from "react-router-dom";
 
 export async function loader({ params }: any) {
-  const operationDetail: IOperation | null = await getOperationDetail(
+  const operationDetail: IOperation | undefined = await getOperationDetail(
     params.id
   );
-  // if(!operationDetail){
-  //   throw new Response("", {
-  //     status: 404,
-  //     statusText: "Operation not Found"
-  //   });
-  // }
+  if(!operationDetail){
+    throw new Response("", {
+      status: 404,
+      statusText: "Operation not Found"
+    });
+  }
   return operationDetail;
 }
 
