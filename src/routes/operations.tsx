@@ -1,5 +1,5 @@
 //@ts-ignore
-import { useLoaderData, useSubmit } from "react-router-dom";
+import { useLoaderData, useNavigation, useSubmit } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import Typography from "@mui/material/Typography";
@@ -37,13 +37,13 @@ export default function Operations() {
   const operationsFullList: IOperation[] = fetchedOperationsList;
   const [operationsFilteredList, setOperationsFilteredList] = useState<
   IOperation[]
-  >(fetchedOperationsList);
+  >([]);
   const [amount, setAmount] = useState(calculateBalance());
   const {selectedFilters,setSelectedFilters} = useContext(MyContext);
   // const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   
   const submit = useSubmit();
-  
+    
   const handleOpenOperation = (id: number) => {
     submit(null, { action: "/detail/" + id });
   };
@@ -61,9 +61,9 @@ export default function Operations() {
   useEffect(() => {
     setAmount(calculateBalance());
   }, [operationsFilteredList]);
-  
-  useEffect(() => {handleApplyFilters()}, []);
 
+  useEffect(() => {handleApplyFilters()}, []);
+  
   // Functions
   const resetOperationFilteredList = () => {
     setOperationsFilteredList(operationsFullList);
@@ -123,8 +123,14 @@ export default function Operations() {
         direction={"column"}
         alignItems={"strech"}
         justifyContent={"start"}
-      >
-        {operationsFilteredList.length == 0 ? (
+      >{(operationsFilteredList.length>0) && operationsFilteredList.map((operation, index) => (
+        <OperationRow
+          key={index}
+          operation={operation}
+          handleOpenOperation={handleOpenOperation}
+        ></OperationRow>
+      ))}
+        {/* {operationsFilteredList.length == 0 ? (
           <Typography variant="h2" fontSize={"15px"} textAlign={"center"}>
             <p>
               <i>Sin Items para mostrar</i>
@@ -138,7 +144,7 @@ export default function Operations() {
               handleOpenOperation={handleOpenOperation}
             ></OperationRow>
           ))
-        )}
+        )} */}
       </Stack>
     </>
   );
