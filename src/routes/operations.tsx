@@ -1,21 +1,21 @@
 //@ts-ignore
-import { useLoaderData, useNavigation, useSubmit } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useLoaderData, useSubmit } from "react-router-dom";
+
 import Box from "@mui/material/Box";
-
 import Typography from "@mui/material/Typography";
-
 import { Stack } from "@mui/material";
+
 import OperationRow from "../components/operation-row";
-import { useEffect, useState } from "react";
 import CustomFiltersSelect from "../components/custom-filters-select";
 import { IOperation } from "../interfaces/global-interfaces";
-// import { useFetchOperations } from "../hooks/useFetchOperations";
 import PriceFormatter from "../helpers/price-formatter";
-import { getOperationsList } from "../services/operations-service";
-import { useContext } from "react";
 import { MyContext } from "../routes/root-page";
 
-//Router Loader:
+import { getOperationsList } from "../services/operations-service";
+// import { useFetchOperations } from "../hooks/useFetchOperations";
+
+// React Router Data API:
 export async function loader() {
   const fetchedOperationsList: IOperation[] | undefined =
     await getOperationsList();

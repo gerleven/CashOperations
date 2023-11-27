@@ -4,6 +4,8 @@ import { getOperationDetail } from "../services/operations-service";
 import { IOperation } from "../interfaces/global-interfaces";
 import { useLoaderData, useSubmit } from "react-router-dom";
 
+
+// React Router Data API:
 export async function loader({ params }: any) {
   const operationDetail: IOperation | undefined = await getOperationDetail(
     params.id
