@@ -38,7 +38,7 @@ export default function RoutingErrorPage() {
               </p>
             </Typography>
 
-            <Form method="get" action="/">
+            <Form method="get" action="/" replace>
               <CustomButtonPrimary type="submit">Volver</CustomButtonPrimary>
             </Form>
           </Stack>

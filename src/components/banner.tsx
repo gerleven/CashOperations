@@ -21,7 +21,7 @@ export default function Banner() {
         sx={{ backgroundColor: theme.palette.blueBanner.main }}
       >
         {location.pathname != "/list" && (
-          <Form method="get" action="/list">
+          <Form method="get" action="/list" replace>
           <IconButton
             className="noFocusBorder"
             sx={{ marginLeft: "16px" }}

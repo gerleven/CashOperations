@@ -57,9 +57,9 @@ export default function Operations() {
 
   const submit = useSubmit();
 
-  //Navigate to route /detail/:id 
+  //Navigate to route /detail/:id
   const handleOpenOperation = (id: number) => {
-    submit(null, { action: "/detail/" + id });
+    submit(null, { action: "/detail/" + id, replace: true });
   };
 
   const filtersList = [
@@ -104,7 +104,6 @@ export default function Operations() {
             </Typography>
           </Box>
           <Box sx={{ width: "115px" }}>
-            
             {/*Filters */}
             <CustomFiltersSelect
               filtersList={filtersList}
