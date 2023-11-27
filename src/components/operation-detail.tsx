@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
 import { pictureMap } from "../helpers/payment-picture-mapping";
+import PriceFormatter from "../helpers/price-formatter";
 
 export default function OperationDetail({ operation }: any) {
   return (
@@ -40,11 +41,11 @@ export default function OperationDetail({ operation }: any) {
             >
               {operation.paymentDescription}
             </Typography>
-            <Typography fontSize={"25px"}>
+            <Typography fontSize={"25px"} mt={"0 !important"}>
               {operation.boxNumber}
             </Typography>
-            <Typography fontSize={"35px"}>
-              {operation.amount}
+            <Typography fontSize={"35px"} mt={"0 !important"}>
+              {PriceFormatter(operation.amount)}
             </Typography>
           </Stack>
         </Stack>
