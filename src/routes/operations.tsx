@@ -57,6 +57,7 @@ export default function Operations() {
 
   const submit = useSubmit();
 
+  //Navigate to route /detail/:id 
   const handleOpenOperation = (id: number) => {
     submit(null, { action: "/detail/" + id });
   };
@@ -67,36 +68,19 @@ export default function Operations() {
     "Cobro en efectivo",
   ];
 
-  // CustomHook to retrive operations (when run local it call the API, when run in github pages it use Fake Data)
-  // const [operationsFullList, setOperationsFullList] = useState<IOperation[]>(fetchedOperationsList);
-  // useFetchOperations(setOperationsFullList, setOperationsFilteredList);
-
+  //To keep the amount synchronized
   useEffect(() => {
     setAmount(calculateBalance());
   }, [operationsFilteredList]);
 
-  useEffect(() => {
-    handleApplyFilters();
-  }, []);
-
   // Functions
-  const resetOperationFilteredList = () => {
-    setOperationsFilteredList(operationsFullList);
-  };
-
   const handleApplyFilters = () => {
-    resetOperationFilteredList();
-    if (selectedFilters.length != 0) {
-      const newList: IOperation[] = operationsFullList.filter((operation) =>
-        selectedFilters.includes(operation.paymentDescription)
-      );
-      setOperationsFilteredList(newList);
-    }
+    setOperationsFilteredList(getFilteredList());
   };
 
   const handleCleanFilters = () => {
     setSelectedFilters([]);
-    resetOperationFilteredList();
+    setOperationsFilteredList(operationsFullList);
   };
 
   function calculateBalance() {
@@ -120,7 +104,8 @@ export default function Operations() {
             </Typography>
           </Box>
           <Box sx={{ width: "115px" }}>
-            {/*                               Filters */}
+            
+            {/*Filters */}
             <CustomFiltersSelect
               filtersList={filtersList}
               selectedFilters={selectedFilters}
