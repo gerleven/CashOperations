@@ -35,16 +35,15 @@ export default function OperationDetail({ operation }: any) {
             </Stack>
 
             <Typography
-              variant="inherit"
               fontSize={"30px"}
               textAlign={"center"}
             >
               {operation.paymentDescription}
             </Typography>
-            <Typography variant="inherit" fontSize={"25px"}>
+            <Typography fontSize={"25px"}>
               {operation.boxNumber}
             </Typography>
-            <Typography variant="inherit" fontSize={"35px"}>
+            <Typography fontSize={"35px"}>
               {operation.amount}
             </Typography>
           </Stack>
