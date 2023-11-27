@@ -8,7 +8,7 @@ export function useFetchOperations(
 ) {
   useEffect(() => {
     if (import.meta.env.DEV) {
-      //When run local, ir call the API:
+      //When run local, it call the API:
       const url = `${import.meta.env.VITE_URL_API}/operations`;
       const fetchData = async () => {
         try {
@@ -21,7 +21,7 @@ export function useFetchOperations(
           setOperationsFilteredList(operationsFetched);
         } catch (error: any) {
           if (
-            window.confirm("La API no responde, desea cargar datos de ejemplo?")
+            window.confirm("La API no responde! Ejecute 'node app.js' en la ruta 'API/app.js' o presione Aceptar para continuar con datos de prueba:")
           ) {
             //If API not work, you can use this fake data:
             setOperationsFullList(hardcodedOperationsList.slice(0, 30));

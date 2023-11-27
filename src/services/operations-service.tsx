@@ -14,7 +14,7 @@ export async function getOperationsList() {
       // operationsList = operationsList.slice(0, 2); //To test with a reduced list
       return operationsList;
     } catch (error: any) {
-      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+      if (window.confirm("La API no responde! Ejecute 'node app.js' en la ruta 'API/app.js' o presione Aceptar para continuar con datos de prueba:")) {
         //If API not work, you can use this fake data:
         return hardcodedOperationsList as IOperation[];
       }
@@ -37,17 +37,18 @@ export async function getOperationDetail(id: number) {
       const operationDetail: IOperation = result.operation as IOperation;
       return operationDetail;
     } catch (error: any) {
-      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+      if (window.confirm("La API no responde! Ejecute 'node app.js' en la ruta 'API/app.js' o presione Aceptar para continuar con datos de prueba:")) {
+        //If API not work, you can use this fake data:
         return loadHarcodedDataOperationDetail(id);
       }
       // throw new Error(error);
-    }
+      }
   } else {
     return loadHarcodedDataOperationDetail(id);
   }
 }
 
-function loadHarcodedDataOperationDetail(id: number) {
+function loadHarcodedDataOperationDetail(id: number): IOperation {
   //If not running local or API not work, it'll use hardcoded data or an example in case the operation doesn't exist in the hardcoded list:
   return (
     hardcodedOperationsList.find((x) => x.id == id) ||
