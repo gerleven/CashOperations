@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 
 export default function IndexPage() {
-  const navigate = useNavigate();
+  const submit = useSubmit()
 
   const handleLoadOperations = () => {
-    navigate("/list");
+    submit(null, {action: "list", replace: true});
   };
 
   useEffect(() => {
