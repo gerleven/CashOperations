@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box, Stack, useTheme } from "@mui/material";
-import { useEffect } from "react";
 
 export default function Banner() {
   const theme = useTheme();
@@ -21,10 +20,6 @@ export default function Banner() {
   const handleClickLogo = () => {
     // navigate("/about");
   };
-
-  useEffect(()=>{
-    console.log(location.pathname)
-  },[location]);
   
   return (
     <>
