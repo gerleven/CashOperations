@@ -104,7 +104,7 @@ export default function Operations() {
               {PriceFormatter(amount)}
             </Typography>
           </Box>
-          <Box>
+          <Box sx={{ width: "115px" }}>
             {/*                               Filters */}
             <CustomFiltersSelect
               filtersList={filtersList}
