@@ -20,15 +20,13 @@ export default function Root() {
   const fakeDataOff = ()=>{
     setUseFakeData(false);
   }
-  const setTheSelectedFilters = (filters: string[])=>{
-    setSelectedFilters(filters);
-  }
+  
   const contextDefaultValue = {
-    useFakeData: useFakeData,
     selectedFilters: selectedFilters,
+    setSelectedFilters: setSelectedFilters,
+    useFakeData: useFakeData,
     fakeDataOn: fakeDataOn,
     fakeDataOff: fakeDataOff,
-    setTheSelectedFilters: setTheSelectedFilters
   }
 
 

@@ -31,21 +31,19 @@ export async function action() {
 }
 
 export default function Operations() {
-  const {useFakeData}: any = useContext(MyContext);
-  
-  const submit = useSubmit();
   const fetchedOperationsList: IOperation[] = useLoaderData() as IOperation[];
-  if (!fetchedOperationsList) {
-    submit(null, { action: "/api-not-working" });
-  }
+  
   //@ts-ignore
   const operationsFullList: IOperation[] = fetchedOperationsList;
   const [operationsFilteredList, setOperationsFilteredList] = useState<
-    IOperation[]
+  IOperation[]
   >(fetchedOperationsList);
   const [amount, setAmount] = useState(calculateBalance());
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-
+  const {selectedFilters,setSelectedFilters} = useContext(MyContext);
+  // const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  
+  const submit = useSubmit();
+  
   const handleOpenOperation = (id: number) => {
     submit(null, { action: "/detail/" + id });
   };
@@ -63,6 +61,8 @@ export default function Operations() {
   useEffect(() => {
     setAmount(calculateBalance());
   }, [operationsFilteredList]);
+  
+  useEffect(() => {handleApplyFilters()}, []);
 
   // Functions
   const resetOperationFilteredList = () => {

@@ -12,10 +12,10 @@ export interface IOperationsFilters {
   cash: boolean;
 }
 
-export interface IFilterOption{
-    id: string;
-    value: boolean;
-    description: string;
+export interface IFilterOption {
+  id: string;
+  value: boolean;
+  description: string;
 }
 
 export interface IError {
@@ -23,7 +23,10 @@ export interface IError {
   message: any;
 }
 
-export interface IMyContext{
-  useFakeData: boolean;
+export interface IMyContext {
   selectedFilters: string[];
+  setSelectedFilters: any;
+  useFakeData: boolean;
+  fakeDataOn: any;
+  fakeDataOff: any;
 }

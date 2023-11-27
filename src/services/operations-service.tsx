@@ -14,10 +14,10 @@ export async function getOperationsList() {
       // operationsList = operationsList.slice(0, 2); //To test with a reduced list
       return operationsList;
     } catch (error: any) {
-      // if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
-      //   //If API not work, you can use this fake data:
-      //   return hardcodedOperationsList as IOperation[];
-      // }
+      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+        //If API not work, you can use this fake data:
+        return hardcodedOperationsList as IOperation[];
+      }
       // throw new Error(error);
       return null;
     }
@@ -38,9 +38,9 @@ export async function getOperationDetail(id: number) {
       const operationDetail: IOperation = result.operation as IOperation;
       return operationDetail;
     } catch (error: any) {
-      // if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
-      //   return loadHarcodedDataOperationDetail(id);
-      // }
+      if (window.confirm("La API no responde, desea cargar datos de ejemplo?")) {
+        return loadHarcodedDataOperationDetail(id);
+      }
       // throw new Error(error);
       return null;
     }
