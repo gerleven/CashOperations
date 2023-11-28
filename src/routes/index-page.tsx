@@ -6,7 +6,7 @@ export default function IndexPage() {
   const submit = useSubmit()
 
   const handleLoadOperations = () => {
-    submit(null, {action: "list", replace: true});
+    submit(null, {action: "/list", replace: true});
   };
 
   useEffect(() => {
