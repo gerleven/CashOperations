@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+# About this App
+I made this App for a technical challenge. I sought to apply all my technological knowledge about React and its ecosystem with the idea of ​​developing a first mobile application that is scalable and with good architectural design.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Links:
+- Repository: [https://github.com/gerleven/Challenge-MP](https://github.com/gerleven/Challenge-MP)
+- Deployed App: [https://gerleven.github.io/Challenge-MP/#/list](https://gerleven.github.io/Challenge-MP/#/list)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+   ## The repository includes:
+```
+   • App (made in React + Vite).
+   • API, hosted at "./API" (made in Express)
+   • The Postman Collection, hosted at "./API/Postman Collection"
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## How to Run Local:
+```
+   • Clone the repository
+   • run `npm install` in the App and API directories
+   • run `npm run dev` in the App directory
+```
+
+## About how the application consumes the API:
+- When run on Github Pages ([Challenge-MP](https://github.com/gerleven/Challenge-MP)) the App uses fake data.
+- When run locally: If the API is running, the app will consume it. If not, the App will notify you and you can choose between running the API before continuing or just continuing but with hardcoded data.
+
+
+### Technological stack:
+- React
+- React Router V6.4 (Data Api)
+- Vite
+- Node v20.9
+- Express
+- npm
+- Git
+- Github
+- Github Pages
+- Postman
