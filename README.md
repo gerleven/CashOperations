@@ -1,5 +1,6 @@
 # About this App
-I made this App for a technical challenge. I sought to apply all my technological knowledge about React and its ecosystem with the idea of ​​developing a first mobile application that is scalable and with good architectural design.
+I made this App for a technical challenge 💻👨‍💻.
+I sought to apply all my technological knowledge about React and its ecosystem with the idea of ​​developing a first mobile application that is scalable and with good architectural design.
 
 ## Links:
 - Repository: [https://github.com/gerleven/Challenge-MP](https://github.com/gerleven/Challenge-MP)
@@ -19,7 +20,7 @@ I made this App for a technical challenge. I sought to apply all my technologica
 ## About how the application consumes the API:
 - When run on Github Pages ([Challenge-MP](https://gerleven.github.io/Challenge-MP)) the App uses fake data.
 - When run locally: If the API is running, the app will consume it. If not, the App will notify you and you can choose between running the API before continuing or just continuing but with hardcoded data.
-- - test
+ - test
 
 ### Technological stack:
 - React
