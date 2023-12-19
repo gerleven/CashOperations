@@ -43,7 +43,7 @@ export default function ApiNotWorking() {
             <Typography textAlign={"left"}>
               <p>
                 • Corre la API ejecutando el comando <b>"node app.js"</b> en la
-                ruta <b>"challenge-mp/API/app.js"</b> y reinicia la aplicacion
+                ruta <b>"./API/app.js"</b> y reinicia la aplicacion
               </p>
               <p>• Usa los datos de prueba:</p>
             </Typography>
